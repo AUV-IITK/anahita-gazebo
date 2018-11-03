@@ -1,0 +1,634 @@
+<robot
+  name="anahita">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="24.460" />
+      <inertia
+        ixx="1.465"
+        ixy="0.178"
+        ixz="-0.035"
+        iyy="2.057"
+        iyz="0.131"
+        izz="2.515" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="north_west">
+    <inertial>
+      <origin
+        xyz="-0.0393438959155203 -0.242481861765712 0.249031898623319"
+        rpy="0 0 0" />
+      <mass
+        value="0.20903660674654" />
+      <inertia
+        ixx="3.6186371961113E-05"
+        ixy="-6.5100321567023E-06"
+        ixz="-9.55727910918306E-08"
+        iyy="3.39680094685973E-05"
+        iyz="3.67502974934373E-08"
+        izz="6.95535597314332E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/north_west.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/north_west.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="north_west_joint"
+    type="fixed">
+    <origin
+      xyz="-0.149697497153929 -0.173658741611859 -0.426776453086659"
+      rpy="4.32963728535973E-17 -5.50781875027218E-15 2.35619449019236" />
+    <parent
+      link="base_link" />
+    <child
+      link="north_west" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="north_east">
+    <inertial>
+      <origin
+        xyz="0.246286120004883 -0.244815642617162 0.248544702903162"
+        rpy="0 0 0" />
+      <mass
+        value="0.20903660674654" />
+      <inertia
+        ixx="3.6186371961113E-05"
+        ixy="-6.5100321567023E-06"
+        ixz="-9.55727910918306E-08"
+        iyy="3.39680094685973E-05"
+        iyz="3.67502974934373E-08"
+        izz="6.95535597314332E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/north_east.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/north_east.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="north_east_joint"
+    type="fixed">
+    <origin
+      xyz="-0.297677979387209 -0.0310582929751855 -0.426289257366501"
+      rpy="5.50781875027218E-15 4.32963728535942E-17 0.785398163397452" />
+    <parent
+      link="base_link" />
+    <child
+      link="north_east" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="south_west">
+    <inertial>
+      <origin
+        xyz="0.262966650034313 -0.259556533005053 0.248544702903159"
+        rpy="0 0 0" />
+      <mass
+        value="0.20903660674654" />
+      <inertia
+        ixx="3.6186371961113E-05"
+        ixy="-6.5100321567023E-06"
+        ixz="-9.55727910918306E-08"
+        iyy="3.39680094685973E-05"
+        iyz="3.67502974934373E-08"
+        izz="6.95535597314332E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/south_west.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/south_west.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="south_west_joint"
+    type="fixed">
+    <origin
+      xyz="0.419063093269821 -0.0276071915667168 -0.426289257366501"
+      rpy="4.32963728535966E-17 -5.59441149597939E-15 -2.35619449019234" />
+    <parent
+      link="base_link" />
+    <child
+      link="south_west" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="south_east">
+    <inertial>
+      <origin
+        xyz="-0.0678755555583847 -0.259162391795143 0.249031898623013"
+        rpy="0 0 0" />
+      <mass
+        value="0.20903660674654" />
+      <inertia
+        ixx="3.6186371961113E-05"
+        ixy="-6.5100321567023E-06"
+        ixz="-9.55727910918306E-08"
+        iyy="3.39680094685973E-05"
+        iyz="3.67502974934373E-08"
+        izz="6.95535597314332E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/south_east.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/south_east.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="south_east_joint"
+    type="fixed">
+    <origin
+      xyz="0.280834157494513 0.105241710611987 -0.426776453086355"
+      rpy="-5.59441149597938E-15 -4.32963728536018E-17 -0.785398163397438" />
+    <parent
+      link="base_link" />
+    <child
+      link="south_east" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="north">
+    <inertial>
+      <origin
+        xyz="0.0687666626202196 0.112114991820364 0.099977533845722"
+        rpy="0 0 0" />
+      <mass
+        value="0.20903660674654" />
+      <inertia
+        ixx="3.6186371961113E-05"
+        ixy="-6.5100321567023E-06"
+        ixz="-9.55727910918306E-08"
+        iyy="3.39680094685973E-05"
+        iyz="3.67502974934373E-08"
+        izz="6.95535597314332E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/north.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/north.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="north_joint"
+    type="fixed">
+    <origin
+      xyz="-0.253534476059564 0.0312104982190713 -0.0899725065775347"
+      rpy="3.14159265358979 -6.12303176911189E-17 -1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="north" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="south">
+    <inertial>
+      <origin
+        xyz="0.068766632923131 0.11211505877732 0.0999775379637561"
+        rpy="0 0 0" />
+      <mass
+        value="0.209037993003136" />
+      <inertia
+        ixx="3.61859012578281E-05"
+        ixy="-6.51020664437179E-06"
+        ixz="-9.50944999419106E-08"
+        iyy="3.3968528401088E-05"
+        iyz="3.6605470815774E-08"
+        izz="6.95536101163798E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/south.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/south.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="south_joint"
+    type="fixed">
+    <origin
+      xyz="0.36431134304451 -0.0916778704633556 -0.113871964660349"
+      rpy="3.14159265358979 1.48499185783095E-08 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="south" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="east">
+    <inertial>
+      <origin
+        xyz="0.068766819984459 0.112115007255015 0.0999772921076303"
+        rpy="0 0 0" />
+      <mass
+        value="0.20903660674654" />
+      <inertia
+        ixx="3.6186371961113E-05"
+        ixy="-6.5100321567023E-06"
+        ixz="-9.55727910918306E-08"
+        iyy="3.39680094685973E-05"
+        iyz="3.67502974934373E-08"
+        izz="6.95535597314332E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/east.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/east.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="east_joint"
+    type="fixed">
+    <origin
+      xyz="-0.00295011291907577 0.0748526601695768 -0.30691889078886"
+      rpy="-6.12319392837392E-17 0.00727776166092887 -4.45627526281709E-19" />
+    <parent
+      link="base_link" />
+    <child
+      link="east" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="west">
+    <inertial>
+      <origin
+        xyz="0.0687666192585355 0.112114922402532 0.0999772830090776"
+        rpy="0 0 0" />
+      <mass
+        value="0.20903900796897" />
+      <inertia
+        ixx="3.61869884424096E-05"
+        ixy="-6.50952460027147E-06"
+        ixz="-9.55776552428478E-08"
+        iyy="3.39685465946927E-05"
+        iyz="3.66436307905463E-08"
+        izz="6.95547010191041E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/west.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/west.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="west_joint"
+    type="fixed">
+    <origin
+      xyz="-0.00149415579298868 -0.133518144711478 -0.106866802178466"
+      rpy="3.14159265358979 0.00727776166093164 -4.45627526281879E-19" />
+    <parent
+      link="base_link" />
+    <child
+      link="west" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="front_camera">
+    <inertial>
+      <origin
+        xyz="0.134891038483645 -0.0313156526042144 -0.0733056023988168"
+        rpy="0 0 0" />
+      <mass
+        value="0.892969587106332" />
+      <inertia
+        ixx="7.30526944732025E-05"
+        ixy="9.06392837694071E-08"
+        ixz="-3.40647498044254E-05"
+        iyy="0.00028126049412029"
+        iyz="-9.58708953127277E-07"
+        izz="0.000215299978177107" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/front_camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/front_camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_camera_joint"
+    type="fixed">
+    <origin
+      xyz="-0.285554915162533 0.109207528036054 -0.329223655144034"
+      rpy="-1.5707963267949 -6.12303176911189E-17 -1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_camera" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="bottom_camera">
+    <inertial>
+      <origin
+        xyz="0.134891037411843 0.0313156526042145 0.0733056043710611"
+        rpy="0 0 0" />
+      <mass
+        value="0.892969587106331" />
+      <inertia
+        ixx="7.30526934770799E-05"
+        ixy="-9.06392697520444E-08"
+        ixz="3.40647477246247E-05"
+        iyy="0.00028126049412029"
+        iyz="-9.58708954452536E-07"
+        izz="0.000215299979173229" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/bottom_camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/bottom_camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="bottom_camera_joint"
+    type="fixed">
+    <origin
+      xyz="-0.0176995340893582 -0.167435710950162 -0.220984568653346"
+      rpy="3.14159265358979 -1.46210182237468E-08 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="bottom_camera" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="imu">
+    <inertial>
+      <origin
+        xyz="0.0974056730934414 0.115788048053613 0.145151708950172"
+        rpy="0 0 0" />
+      <mass
+        value="0.916442123023218" />
+      <inertia
+        ixx="0.000193109973414786"
+        ixy="-1.74199514738786E-09"
+        ixz="-2.00429808481526E-05"
+        iyy="0.000200383065272703"
+        iyz="5.7126114865763E-08"
+        izz="7.39184193573262E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/imu.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://anahita/meshes/imu.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="imu_joint"
+    type="fixed">
+    <origin
+      xyz="0.127325849447018 0.0845488670727162 -0.212566192853758"
+      rpy="6.12303176911189E-17 0 3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <gazebo>
+    <plugin name="AUVPlugin" filename="libAUVPlugin.so">
+      <thrustEfficiency>0.9</thrustEfficiency>
+      <thrustMin>-7</thrustMin>
+      <thrustMax>7</thrustMax>
+      <robotNamespace>AUV</robotNamespace>
+    </plugin>
+  </gazebo>
+</robot>
