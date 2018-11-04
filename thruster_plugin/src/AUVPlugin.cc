@@ -3,7 +3,7 @@
 namespace gazebo
 {
 AUV::AUV() {
-    ROS_INFO("AUV plugin started successfully");
+    std::cout << "AUV plugin started successfully" << std::endl;
     this->inputCommand = 0;
 }
 AUV::~AUV() {}
@@ -19,13 +19,13 @@ void AUV::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
     this->baseLink = _model->GetLink("base_link");
 
     if (thrusterLink1 == NULL) {
-        ROS_INFO("East thruster link is NULL");
+        std::cout << "East thruster link is NULL" << std::endl;
     }
     if (thrusterLink2 == NULL) {
-        ROS_INFO("West thruster link is NULL");
+        std::cout << "West thruster link is NULL" << std::endl;
     }
     if (baseLink == NULL) {
-        ROS_INFO("Base Link is NULL");
+        std::cout << "Base Link is NULL" << std::endl;
     }
  
     this->thrusterID = _sdf->Get<int>("thrusterID");
