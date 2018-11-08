@@ -138,7 +138,7 @@ link_directories(
 
 ## Declare a C++ library
 add_library(AUVPlugin SHARED src/AUVPlugin.cc include/thruster_plugin/AUVPlugin.hh)
-target_link_libraries(AUVPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES})
+target_link_libraries(AUVPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries

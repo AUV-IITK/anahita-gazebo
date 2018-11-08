@@ -71,13 +71,13 @@ namespace gazebo
         protected: std::string topicPrefix;
 
         // ROS node
-        protected: ros::NodeHandle nh_;
+        // protected: ros::NodeHandle nh_;
 
         // Subscriber to the reference signal topic.
-        protected: ros::Subscriber commandSubscriber;
+        // protected: ros::Subscriber commandSubscriber;
 
         // Publisher to the output thrust topic
-        protected: ros::Publisher thrustTopicPublisher;
+        // protected: ros::Publisher thrustTopicPublisher;
 
         // Listen to the update event
         // The event is broadcasted every simulation iteration

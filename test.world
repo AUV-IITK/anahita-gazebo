@@ -23,7 +23,7 @@
               <size>100 100</size>
             </plane>
           </geometry>
-          <surface>
+          <!-- <surface>
             <friction>
               <ode>
                 <mu>100</mu>
@@ -37,7 +37,7 @@
               <ode/>
             </contact>
             <bounce/>
-          </surface>
+          </surface> -->
           <max_contacts>10</max_contacts>
         </collision>
         <visual name='visual'>

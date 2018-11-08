@@ -1,9 +1,11 @@
 <sdf version='1.6'>
   <model name='anahita'>
+    <pose frame=''>0 0 3 0 0 0</pose>
     <link name='base_link'>
-      <pose frame=''>0 0 0 0 -0 0</pose>
+      <pose frame=''>0 0 0 0 0 0</pose>
+      <gravity>1</gravity>
       <inertial>
-        <pose frame=''>-0.006535 -0.00453 -0.031571 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 0 0</pose>
         <mass>28.8347</mass>
         <inertia>
           <ixx>1.6824</ixx>
@@ -33,8 +35,22 @@
         </geometry>
       </visual>
     </link>
+    
     <link name='east'>
-     <collision name='base_link_fixed_joint_lump__east_collision_2'>
+      <gravity>1</gravity>
+      <inertial>
+        <pose frame=''>-0.00295 0.074853 -0.306919 -0 0.007278 -0</pose>
+        <mass>0.20903660674654</mass>
+        <inertia>
+          <ixx>3.6186371961113E-05</ixx>
+          <ixy>-6.5100321567023E-06</ixy>
+          <ixz>-9.55727910918306E-08</ixz>
+          <iyy>3.39680094685973E-05</iyy>
+          <iyz>3.67502974934373E-08</iyz>
+          <izz>6.95535597314332E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_fixed_joint_lump__east_collision_2'>
         <pose frame=''>-0.00295 0.074853 -0.306919 -0 0.007278 -0</pose>
         <geometry>
           <mesh>
@@ -43,7 +59,7 @@
           </mesh>
         </geometry>
       </collision>
-       <visual name='base_link_fixed_joint_lump__east_visual_2'>
+      <visual name='base_link_fixed_joint_lump__east_visual_2'>
         <pose frame=''>-0.00295 0.074853 -0.306919 -0 0.007278 -0</pose>
         <geometry>
           <mesh>
@@ -58,8 +74,22 @@
       <child>east</child>
       <axis><xyz>0 0 0</xyz></axis>
     </joint> 
+    
     <link name='west'>
-     <collision name='base_link_fixed_joint_lump__west_collision_11'>
+      <gravity>1</gravity>
+      <inertial>
+        <pose frame=''>-0.001494 -0.133518 -0.106867 3.14159 0.007278 -0</pose>
+        <mass>0.20903660674654</mass>
+        <inertia>
+          <ixx>3.6186371961113E-05</ixx>
+          <ixy>-6.5100321567023E-06</ixy>
+          <ixz>-9.55727910918306E-08</ixz>
+          <iyy>3.39680094685973E-05</iyy>
+          <iyz>3.67502974934373E-08</iyz>
+          <izz>6.95535597314332E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_fixed_joint_lump__west_collision_11'>
         <pose frame=''>-0.001494 -0.133518 -0.106867 3.14159 0.007278 -0</pose>
         <geometry>
           <mesh>
@@ -77,55 +107,83 @@
           </mesh>
         </geometry>
       </visual>
-   </link>
-   <joint name="west_joint" type="fixed">
+    </link>
+    <joint name="west_joint" type="fixed">
       <parent>base_link</parent>
       <child>west</child>
       <axis><xyz>0 0 0</xyz></axis>
     </joint> 
+    
     <link name="north">
-    <collision name='base_link_fixed_joint_lump__north_collision_6'>
+      <gravity>1</gravity>
+      <inertial>
         <pose frame=''>-0.253534 0.031211 -0.089973 3.14159 -0 -1.5708</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north.STL</uri>
-          </mesh>
-        </geometry>
+        <mass>0.20903660674654</mass>
+        <inertia>
+          <ixx>3.6186371961113E-05</ixx>
+          <ixy>-6.50989826823458E-06</ixy>
+          <ixz>-9.51038686020477E-08</ixz>
+          <iyy>3.39684105605489E-05</iyy>
+          <iyz>3.6553730336142E-08</iyz>
+          <izz>6.95541825589081E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_fixed_joint_lump__north_collision_6'>
+        <pose frame=''>-0.253534 0.031211 -0.089973 3.14159 -0 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north.STL</uri>
+            </mesh>
+          </geometry>
       </collision>
-    <visual name='base_link_fixed_joint_lump__north_visual_6'>
+      <visual name='base_link_fixed_joint_lump__north_visual_6'>
         <pose frame=''>-0.253534 0.031211 -0.089973 3.14159 -0 -1.5708</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north.STL</uri>
-          </mesh>
-        </geometry>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north.STL</uri>
+            </mesh>
+          </geometry>
       </visual>
-      </link>
+    </link>
     <joint name="north_joint" type="fixed">
       <parent>base_link</parent>
       <child>north</child>
       <axis><xyz>0 0 0</xyz></axis>
     </joint> 
+    
     <link name="south_west">
+      <gravity>1</gravity>
+      <!-- <inertial>
+        <pose frame=''>0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
+        <mass>0.20903660674654</mass>
+        <inertia>
+          <ixx>3.6186371961113E-05</ixx>
+          <ixy>-6.50989826823458E-06</ixy>
+          <ixz>-9.51038686020477E-08</ixz>
+          <iyy>3.39684105605489E-05</iyy>
+          <iyz>3.6553730336142E-08</iyz>
+          <izz>6.95541825589081E-05</izz>
+        </inertia>
+      </inertial> -->
       <collision name='base_link_fixed_joint_lump__south_west_collision_10'>
         <pose frame=''>0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south_west.STL</uri>
-          </mesh>
-        </geometry>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south_west.STL</uri>
+            </mesh>
+          </geometry>
       </collision>
       <visual name='base_link_fixed_joint_lump__south_west_visual_10'>
         <pose frame=''>0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south_west.STL</uri>
-          </mesh>
-        </geometry>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south_west.STL</uri>
+            </mesh>
+          </geometry>
       </visual>
     </link>
     <joint name="south_west_joint" type="fixed">
@@ -133,8 +191,22 @@
       <child>south_west</child>
       <axis><xyz>0 0 0</xyz></axis>
     </joint> 
+    
     <link name="bottom_camera">
-     <collision name='base_link_fixed_joint_lump__bottom_camera_collision_1'>
+      <gravity>1</gravity>
+      <!-- <inertial>
+        <pose frame=''>-0.0177 -0.167436 -0.220985 3.14159 -0 1.5708</pose>
+        <mass>0.892969587106331</mass>
+        <inertia>
+          <ixx>7.30526934770799E-05</ixx>
+          <ixy>-9.06392697520444E-08</ixy>
+          <ixz>3.40647477246247E-05</ixz>
+          <iyy>0.00028126049412029</iyy>
+          <iyz>-9.58708954452536E-07</iyz>
+          <izz>0.000215299979173229</izz>
+        </inertia>
+      </inertial> -->
+      <collision name='base_link_fixed_joint_lump__bottom_camera_collision_1'>
         <pose frame=''>-0.0177 -0.167436 -0.220985 3.14159 -0 1.5708</pose>
         <geometry>
           <mesh>
@@ -152,171 +224,253 @@
           </mesh>
         </geometry>
       </visual>
-      </link> 
-      <joint name="bottom_camera_joint" type="fixed">
-        <parent>base_link</parent>
-        <child>bottom_camera</child>
-        <axis><xyz>0 0 0</xyz></axis>
-      </joint> 
-      <link name="south">
-        <visual name='base_link_fixed_joint_lump__south_visual_9'>
-          <pose frame=''>0.364311 -0.091678 -0.113872 3.14159 0 1.5708</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south.STL</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <collision name='base_link_fixed_joint_lump__south_collision_9'>
-          <pose frame=''>0.364311 -0.091678 -0.113872 3.14159 0 1.5708</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south.STL</uri>
-            </mesh>
-          </geometry>
-        </collision>
-      </link>
-      <joint name="south_joint" type="fixed">
-        <parent>base_link</parent>
-        <child>south</child>
-        <axis><xyz>0 0 0</xyz></axis>
-      </joint> 
-      <link name="south_east">
-        <visual name='base_link_fixed_joint_lump__south_east_visual_8'>
-          <pose frame=''>0.280834 0.105242 -0.426776 -0 -0 -0.785398</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south_east.STL</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <collision name='base_link_fixed_joint_lump__south_east_collision_8'>
-          <pose frame=''>0.280834 0.105242 -0.426776 -0 -0 -0.785398</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south_east.STL</uri>
-            </mesh>
-          </geometry>
-        </collision>
-      </link>
-      
-      <joint name="south_east_joint" type="fixed">
-        <parent>base_link</parent>
-        <child>south_east</child>
-        <axis><xyz>0 0 0</xyz></axis>
-      </joint> 
-      <link name="front_camera">
-        <collision name='base_link_fixed_joint_lump__front_camera_collision_3'>
-          <pose frame=''>-0.285555 0.109208 -0.329224 -1.5708 -0 -1.5708</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/front_camera.STL</uri>
-            </mesh>
-          </geometry>
-        </collision>
-        <visual name='base_link_fixed_joint_lump__front_camera_visual_3'>
-          <pose frame=''>-0.285555 0.109208 -0.329224 -1.5708 -0 -1.5708</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/front_camera.STL</uri>
-            </mesh>
-          </geometry>
-        </visual>
-      </link>
+    </link> 
+    <joint name="bottom_camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>bottom_camera</child>
+      <axis><xyz>0 0 0</xyz></axis>
+    </joint> 
+    
+    <link name="south">
+      <gravity>1</gravity>
+      <inertial>
+        <pose frame=''>0.364311 -0.091678 -0.113872 3.14159 0 1.5708</pose>
+        <mass>0.20903660674654</mass>
+        <inertia>
+          <ixx>3.6186371961113E-05</ixx>
+          <ixy>-6.50989826823458E-06</ixy>
+          <ixz>-9.51038686020477E-08</ixz>
+          <iyy>3.39684105605489E-05</iyy>
+          <iyz>3.6553730336142E-08</iyz>
+          <izz>6.95541825589081E-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='base_link_fixed_joint_lump__south_visual_9'>
+        <pose frame=''>0.364311 -0.091678 -0.113872 3.14159 0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='base_link_fixed_joint_lump__south_collision_9'>
+        <pose frame=''>0.364311 -0.091678 -0.113872 3.14159 0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="south_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>south</child>
+      <axis><xyz>0 0 0</xyz></axis>
+    </joint> 
+    
+    <link name="south_east">
+      <!-- <inertial>
+        <pose frame=''>0.280834 0.105242 -0.426776 -0 -0 -0.785398</pose>
+        <mass>0.20903660674654</mass>
+        <inertia>
+          <ixx>3.6186371961113E-05</ixx>
+          <ixy>-6.50989826823458E-06</ixy>
+          <ixz>-9.51038686020477E-08</ixz>
+          <iyy>3.39684105605489E-05</iyy>
+          <iyz>3.6553730336142E-08</iyz>
+          <izz>6.95541825589081E-05</izz>
+        </inertia>
+      </inertial> -->
+      <gravity>1</gravity>
+      <visual name='base_link_fixed_joint_lump__south_east_visual_8'>
+        <pose frame=''>0.280834 0.105242 -0.426776 -0 -0 -0.785398</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south_east.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='base_link_fixed_joint_lump__south_east_collision_8'>
+        <pose frame=''>0.280834 0.105242 -0.426776 -0 -0 -0.785398</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south_east.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="south_east_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>south_east</child>
+      <axis><xyz>0 0 0</xyz></axis>
+    </joint> 
+    
+    <link name="front_camera">
+      <gravity>1</gravity>
+      <!-- <inertial>
+        <pose frame=''>-0.285555 0.109208 -0.329224 -1.5708 -0 -1.5708</pose>
+        <mass>0.892969587106332</mass>
+        <inertia>
+          <ixx>7.30526934770799E-05</ixx>
+          <ixy>-9.06392697520444E-08</ixy>
+          <ixz>3.40647477246247E-05</ixz>
+          <iyy>0.00028126049412029</iyy>
+          <iyz>-9.58708954452536E-07</iyz>
+          <izz>0.000215299979173229</izz>
+        </inertia>
+      </inertial> -->
+      <collision name='base_link_fixed_joint_lump__front_camera_collision_3'>
+        <pose frame=''>-0.285555 0.109208 -0.329224 -1.5708 -0 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/front_camera.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_fixed_joint_lump__front_camera_visual_3'>
+        <pose frame=''>-0.285555 0.109208 -0.329224 -1.5708 -0 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/front_camera.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="front_camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>front_camera</child>
+      <axis><xyz>0 0 0</xyz></axis>
+    </joint> 
 
-      <joint name="front_camera_joint" type="fixed">
-        <parent>base_link</parent>
-        <child>front_camera</child>
-        <axis><xyz>0 0 0</xyz></axis>
-      </joint> 
+    <link name="imu">
+      <gravity>1</gravity>
+      <!-- <inertial>
+        <pose frame=''>0.127326 0.084549 -0.212566 0 0 3.14159</pose>
+        <mass>0.916442123023218</mass>
+        <inertia>
+          <ixx>0.000193109973414786</ixx>
+          <ixy>-1.74199514738786E-09</ixy>
+          <ixz>-2.00429808481526E-05</ixz>
+          <iyy>0.000200383065272703</iyy>
+          <iyz>5.7126114865763E-08</iyz>
+          <izz>7.39184193573262E-06</izz>
+        </inertia>
+      </inertial> -->
+      <collision name='base_link_fixed_joint_lump__imu_collision_4'>
+        <pose frame=''>0.127326 0.084549 -0.212566 0 0 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/imu.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_fixed_joint_lump__imu_visual_4'>
+        <pose frame=''>0.127326 0.084549 -0.212566 0 0 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/imu.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="imu_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>imu</child>
+      <axis><xyz>0 0 0</xyz></axis>
+    </joint> 
 
-      <link name="imu">
-        <collision name='base_link_fixed_joint_lump__imu_collision_4'>
-          <pose frame=''>0.127326 0.084549 -0.212566 0 0 3.14159</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/imu.STL</uri>
-            </mesh>
-          </geometry>
-        </collision>
-        <visual name='base_link_fixed_joint_lump__imu_visual_4'>
-          <pose frame=''>0.127326 0.084549 -0.212566 0 0 3.14159</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/imu.STL</uri>
-            </mesh>
-          </geometry>
-        </visual>
-      </link>
-      <joint name="imu_joint" type="fixed">
-        <parent>base_link</parent>
-        <child>imu</child>
-        <axis><xyz>0 0 0</xyz></axis>
-      </joint> 
-      <link name="north_east">
-        <collision name='base_link_fixed_joint_lump__north_east_collision_5'>
-          <pose frame=''>-0.297678 -0.031058 -0.426289 0 0 0.785398</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north_east.STL</uri>
-            </mesh>
-          </geometry>
-        </collision>
-        <visual name='base_link_fixed_joint_lump__north_east_visual_5'>
-          <pose frame=''>-0.297678 -0.031058 -0.426289 0 0 0.785398</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north_east.STL</uri>
-            </mesh>
-          </geometry>
-        </visual>
-      </link>
-      <joint name="north_east_joint" type="fixed">
-        <parent>base_link</parent>
-        <child>north_east</child>
-        <axis><xyz>0 0 0</xyz></axis>
-      </joint> 
-      <link name="north_west">      
-        <collision name='base_link_fixed_joint_lump__north_west_collision_7'>
-          <pose frame=''>-0.149697 -0.173659 -0.426776 0 -0 2.35619</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north_west.STL</uri>
-            </mesh>
-          </geometry>
-        </collision>     
-        <visual name='base_link_fixed_joint_lump__north_west_visual_7'>
-          <pose frame=''>-0.149697 -0.173659 -0.426776 0 -0 2.35619</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north_west.STL</uri>
-            </mesh>
-          </geometry>
-        </visual>     
-      </link>
-      <joint name="north_west_joint" type="fixed">
-        <parent>base_link</parent>
-        <child>north_west</child>
-        <axis><xyz>0 0 0</xyz></axis>
-      </joint> 
-      <static>0</static>
-      <plugin name='AUVPlugin' filename='libAUVPlugin.so'>
-        <thrustEfficiency>0.9</thrustEfficiency>
-        <thrustMin>-7</thrustMin>
-        <thrustMax>7</thrustMax>
-        <robotNamespace>AUV</robotNamespace>
-      </plugin>
+    <link name="north_east">
+      <gravity>1</gravity>
+      <!-- <inertial>
+        <pose frame=''>-0.297678 -0.031058 -0.426289 0 0 0.785398</pose>
+        <mass>0.20903660674654</mass>
+        <inertia>
+          <ixx>3.6186371961113E-05</ixx>
+          <ixy>-6.50989826823458E-06</ixy>
+          <ixz>-9.51038686020477E-08</ixz>
+          <iyy>3.39684105605489E-05</iyy>
+          <iyz>3.6553730336142E-08</iyz>
+          <izz>6.95541825589081E-05</izz>
+        </inertia>
+      </inertial> -->
+      <collision name='base_link_fixed_joint_lump__north_east_collision_5'>
+        <pose frame=''>-0.297678 -0.031058 -0.426289 0 0 0.785398</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north_east.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_fixed_joint_lump__north_east_visual_5'>
+        <pose frame=''>-0.297678 -0.031058 -0.426289 0 0 0.785398</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north_east.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="north_east_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>north_east</child>
+      <axis><xyz>0 0 0</xyz></axis>
+    </joint> 
+
+    <link name="north_west">   
+      <gravity>1</gravity>
+      <!-- <inertial>
+        <pose frame=''>-0.149697 -0.173659 -0.426776 0 -0 2.35619</pose>
+        <mass>0.20903660674654</mass>
+        <inertia>
+          <ixx>3.6186371961113E-05</ixx>
+          <ixy>-6.50989826823458E-06</ixy>
+          <ixz>-9.51038686020477E-08</ixz>
+          <iyy>3.39684105605489E-05</iyy>
+          <iyz>3.6553730336142E-08</iyz>
+          <izz>6.95541825589081E-05</izz>
+        </inertia>
+      </inertial> -->
+      <collision name='base_link_fixed_joint_lump__north_west_collision_7'>
+        <pose frame=''>-0.149697 -0.173659 -0.426776 0 -0 2.35619</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north_west.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>     
+      <visual name='base_link_fixed_joint_lump__north_west_visual_7'>
+        <pose frame=''>-0.149697 -0.173659 -0.426776 0 -0 2.35619</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north_west.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>     
+    </link>
+    <joint name="north_west_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>north_west</child>
+      <axis><xyz>0 0 0</xyz></axis>
+    </joint> 
+    
+    <static>0</static>
+    <plugin name='AUVPlugin' filename='libAUVPlugin.so'>
+      <thrustEfficiency>0.9</thrustEfficiency>
+      <thrustMin>-7</thrustMin>
+      <thrustMax>7</thrustMax>
+      <robotNamespace>AUV</robotNamespace>
+    </plugin>
   </model>
 </sdf>
