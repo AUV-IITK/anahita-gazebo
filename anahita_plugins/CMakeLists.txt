@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(thruster_plugin)
+project(anahita_plugins)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -137,8 +137,14 @@ link_directories(
 )
 
 ## Declare a C++ library
-add_library(AUVPlugin SHARED src/AUVPlugin.cc include/thruster_plugin/AUVPlugin.hh)
+add_library(AUVPlugin SHARED src/AUVPlugin.cc include/anahita_plugins/AUVPlugin.hh)
 target_link_libraries(AUVPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES})
+
+add_library(imuPlugin SHARED src/imuPlugin.cc include/anahita_plugins/imuPlugin.hh)
+target_link_libraries(imuPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES})
+
+add_library(cameraPlugin SHARED src/cameraPlugin.cc include/anahita_plugins/cameraPlugin.hh)
+target_link_libraries(cameraPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries

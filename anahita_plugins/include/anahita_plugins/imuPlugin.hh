@@ -1,0 +1,101 @@
+#ifndef IMUPLUGIN_HH
+#define IMUPLUGIN_HH
+
+#include <string>
+#include <algorithm>
+#include <assert.h>
+
+#include <boost/bind.hpp>
+#include <boost/thread.hpp>
+
+#include <sdf/sdf.hh>
+#include <sdf/Param.hh>
+
+#if GAZEBO_MAJOR_VERSION < 6
+#include <gazebo/gazebo.hh>
+#else
+#include <gazebo/gazebo_client.hh>
+#endif
+
+#include <gazebo/physics/physics.hh>
+
+#include <gazebo/transport/transport.hh>
+#include <gazebo/msgs/msgs.hh>
+
+#include <gazebo/common/Time.hh>
+#include <gazebo/common/Plugin.hh>
+#include <gazebo/common/Events.hh>
+#include <gazebo/common/Exception.hh>
+
+#include <gazebo/sensors/Sensor.hh>
+#include <gazebo/sensors/ImuSensor.hh>
+
+#include <ignition/math/Angle.hh>
+#include <ignition/math/Pose3.hh>
+#include <ignition/math/Quaternion.hh>
+#include <ignition/math/Vector3.hh>
+
+namespace gazebo
+{
+
+  class IMUPlugin : public SensorPlugin
+  {
+  public:
+    // Constructor
+    IMUPlugin();
+
+    // Destructor
+    virtual ~IMUPlugin();
+
+    // Load the plugin
+    void Load(sensors::SensorPtr _parent, sdf::ElementPtr _sdf);
+
+    // Updated on each simulation iteration
+    void OnUpdate(const common::UpdateInfo &);
+
+    // Add noise
+    // double GaussianKernel(double mu, double sigma);
+
+  private:
+    // Topic used for communication
+    std::string topic_name_;
+
+    // World Name
+    std::string world_name_;
+
+    // Pointer to the model
+    physics::ModelPtr model_;
+
+    // Pointer to the sensor.
+    sensors::ImuSensor* sensor_;
+    // sensors::SensorPtr sensor_;
+
+    // SDF root element
+    sdf::ElementPtr sdf_;
+
+    // Orientation data from the sensor.
+    ignition::math::Quaterniond orientation;
+
+    // Linear acceleration data from the sensor.
+    ignition::math::Vector3d accelerometer_data;
+
+    // Angular velocity data from the sensor.
+    ignition::math::Vector3d gyroscope_data;
+
+    // Sensor update rate.
+    double update_rate;
+
+    // Gaussian noise.
+    double gaussian_noise;
+
+    // Offset parameter, position part is unused.
+    ignition::math::Pose3d offset;
+
+    // Listen to the update event
+    // The event is broadcasted every simulation iteration
+    event::ConnectionPtr connection;
+
+  };
+}
+
+#endif
