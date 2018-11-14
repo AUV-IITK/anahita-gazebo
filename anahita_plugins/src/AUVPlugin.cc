@@ -26,6 +26,12 @@ void AUV::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
 
     cout << "Model Name: " << _model->GetName() << endl;
     
+    int argc = 0;
+
+    ros::init(argc, NULL, "anahita");
+
+    this->nh_ = new ros::NodeHandle("anahita");
+
     this->north_sub_ = this->nh_->subscribe("/pwm/sidewardFront", 
         1, &AUV::SidewardBackCB, this);
 
@@ -51,6 +57,7 @@ void AUV::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
         1, &AUV::UpwardSouthEastCB, this);
 
     this->update_connection_ = event::Events::ConnectWorldUpdateBegin(boost::bind(&AUV::Update, this));
+
 }
 
 double AUV::ThrustConversionFnc(int pwm) {
@@ -70,11 +77,6 @@ void AUV::Update() {
     buoyancyForce = ignition::math::Vector3d(0, 0, 0);
 
     double mass = 0;
-// #if GAZEBO_MAJOR_VERSION >= 8
-//     mass = this->baseLink->GetInertial()->Mass();
-// #else
-//     mass = this->baseLink->GetInertial()->GetMass();
-// #endif
 
     std::vector<gazebo::physics::LinkPtr> links_ = this->model_->GetLinks();
 
@@ -86,20 +88,19 @@ void AUV::Update() {
 
     for (int i = 0; i < links_.size(); i++) {
         mass = mass + links_[i]->GetInertial()->Mass();
-        cout << "links_[i]->GetInertial()->Mass(): " << links_[i]->GetInertial()->Mass() << endl;
     }
 
     buoyancyForce = ignition::math::Vector3d(0, 0, mass*g);
     this->baseLink->AddForceAtRelativePosition(buoyancyForce, CoB);
 
-    this->north_link_->AddRelativeForce(ignition::math::Vector3d(0, ThrustConversionFnc(pwm_north_), 0));
-    this->south_link_->AddRelativeForce(ignition::math::Vector3d(0, ThrustConversionFnc(pwm_south_), 0));
-    this->east_link_->AddRelativeForce(ignition::math::Vector3d(ThrustConversionFnc(pwm_east_), 0, 0));
-    this->west_link_->AddRelativeForce(ignition::math::Vector3d(ThrustConversionFnc(pwm_west_), 0, 0));
-    this->north_east_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, ThrustConversionFnc(pwm_north_east_)));
-    this->north_west_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, ThrustConversionFnc(pwm_north_west_)));
-    this->south_east_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, ThrustConversionFnc(pwm_south_east_)));
-    this->south_west_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, ThrustConversionFnc(pwm_south_west_)));
+    this->north_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
+    this->south_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
+    this->east_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
+    this->west_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
+    this->north_east_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
+    this->north_west_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
+    this->south_east_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
+    this->south_west_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
 
 }
 

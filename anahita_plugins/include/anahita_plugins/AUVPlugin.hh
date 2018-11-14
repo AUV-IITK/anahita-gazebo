@@ -81,14 +81,14 @@ namespace gazebo
         protected: int thrustMax;
 
         // \brief: to store pwm sent from controller
-        protected: int pwm_north_;
-        protected: int pwm_south_;
-        protected: int pwm_east_;
-        protected: int pwm_west_;
-        protected: int pwm_north_east_;
-        protected: int pwm_north_west_;
-        protected: int pwm_south_west_;
-        protected: int pwm_south_east_;
+        protected: int pwm_north_ = 1500;
+        protected: int pwm_south_ = 1500;
+        protected: int pwm_east_ = 1500;
+        protected: int pwm_west_ = 1500;
+        protected: int pwm_north_east_ = 1500;
+        protected: int pwm_north_west_ = 1500;
+        protected: int pwm_south_west_ = 1500;
+        protected: int pwm_south_east_ = 1500;
 
         /// \brief Thruster topics prefix
         protected: std::string topicPrefix;
