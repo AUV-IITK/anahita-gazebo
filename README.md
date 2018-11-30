@@ -1,1 +1,2 @@
-# Simulation support for Anahita
+# anahita-gazebo
+Gazebo support for Anahita
