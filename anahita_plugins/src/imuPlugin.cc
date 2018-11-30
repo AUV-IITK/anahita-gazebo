@@ -32,6 +32,7 @@ GZ_REGISTER_MODEL_PLUGIN(GazeboRosIMU)
 GazeboRosIMU::GazeboRosIMU()
 {
   this->seed = 0;
+  std::cout << "IMU Plugin loaded!!" << std::endl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

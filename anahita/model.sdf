@@ -21,7 +21,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/base_link.STL</uri>
+            <uri>model://anahita/meshes/base_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -30,7 +30,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/base_link.STL</uri>
+            <uri>model://anahita/meshes/base_link.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -55,7 +55,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/east.STL</uri>
+            <uri>model://anahita/meshes/east.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -64,7 +64,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/east.STL</uri>
+            <uri>model://anahita/meshes/east.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -94,7 +94,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/west.STL</uri>
+            <uri>model://anahita/meshes/west.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -103,7 +103,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/west.STL</uri>
+            <uri>model://anahita/meshes/west.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -133,7 +133,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north.STL</uri>
+              <uri>model://anahita/meshes/north.STL</uri>
             </mesh>
           </geometry>
       </collision>
@@ -142,7 +142,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north.STL</uri>
+              <uri>model://anahita/meshes/north.STL</uri>
             </mesh>
           </geometry>
       </visual>
@@ -172,7 +172,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south_west.STL</uri>
+              <uri>model://anahita/meshes/south_west.STL</uri>
             </mesh>
           </geometry>
       </collision>
@@ -181,7 +181,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south_west.STL</uri>
+              <uri>model://anahita/meshes/south_west.STL</uri>
             </mesh>
           </geometry>
       </visual>
@@ -211,7 +211,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/bottom_camera.STL</uri>
+            <uri>model://anahita/meshes/bottom_camera.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -220,7 +220,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/bottom_camera.STL</uri>
+            <uri>model://anahita/meshes/bottom_camera.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -250,7 +250,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south.STL</uri>
+            <uri>model://anahita/meshes/south.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -259,7 +259,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south.STL</uri>
+            <uri>model://anahita/meshes/south.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -289,7 +289,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south_east.STL</uri>
+            <uri>model://anahita/meshes/south_east.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -298,7 +298,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/south_east.STL</uri>
+            <uri>model://anahita/meshes/south_east.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -328,7 +328,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/front_camera.STL</uri>
+            <uri>model://anahita/meshes/front_camera.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -337,7 +337,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/front_camera.STL</uri>
+            <uri>model://anahita/meshes/front_camera.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -367,7 +367,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/imu.STL</uri>
+            <uri>model://anahita/meshes/imu.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -376,7 +376,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/imu.STL</uri>
+            <uri>model://anahita/meshes/imu.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -406,7 +406,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north_east.STL</uri>
+            <uri>model://anahita/meshes/north_east.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -415,7 +415,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north_east.STL</uri>
+            <uri>model://anahita/meshes/north_east.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -445,7 +445,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north_west.STL</uri>
+            <uri>model://anahita/meshes/north_west.STL</uri>
           </mesh>
         </geometry>
       </collision>     
@@ -454,7 +454,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/ironman/workspace/temp_ws/src/anahita_sim/anahita/meshes/north_west.STL</uri>
+            <uri>model://anahita/meshes/north_west.STL</uri>
           </mesh>
         </geometry>
       </visual>     
@@ -470,7 +470,14 @@
       <thrustEfficiency>0.9</thrustEfficiency>
       <thrustMin>-7</thrustMin>
       <thrustMax>7</thrustMax>
-      <robotNamespace>AUV</robotNamespace>
+      <robotNamespace>Anahita</robotNamespace>
+    </plugin>
+    <plugin name='GazeboRosIMU' filename='libimuPlugin.so'>
+      <topicName>/varun/sensors/imu/data</topicName>
+      <gaussianNoise>0.01</gaussianNoise>
+      <updateRate>50</updateRate>
+      <robotNamespace>Anahita</robotNamespace>
+      <bodyName>imu</bodyName>  
     </plugin>
   </model>
 </sdf>
