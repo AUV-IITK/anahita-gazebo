@@ -1,101 +1,130 @@
-#ifndef IMUPLUGIN_HH
-#define IMUPLUGIN_HH
+/*
+ * Copyright 2012 Open Source Robotics Foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+*/
+#ifndef GAZEBO_ROS_IMU_HH
+#define GAZEBO_ROS_IMU_HH
 
 #include <string>
-#include <algorithm>
-#include <assert.h>
-
-#include <boost/bind.hpp>
 #include <boost/thread.hpp>
+#include <boost/thread/mutex.hpp>
+#include <boost/bind.hpp>
 
-#include <sdf/sdf.hh>
-#include <sdf/Param.hh>
-
-#if GAZEBO_MAJOR_VERSION < 6
-#include <gazebo/gazebo.hh>
-#else
-#include <gazebo/gazebo_client.hh>
-#endif
+#include <ros/ros.h>
+#include <ros/callback_queue.h>
+#include <ros/advertise_options.h>
+#include <sensor_msgs/Imu.h>
+#include <std_srvs/Empty.h>
 
 #include <gazebo/physics/physics.hh>
-
 #include <gazebo/transport/transport.hh>
-#include <gazebo/msgs/msgs.hh>
+#include <gazebo/common/common.hh>
 
-#include <gazebo/common/Time.hh>
-#include <gazebo/common/Plugin.hh>
-#include <gazebo/common/Events.hh>
-#include <gazebo/common/Exception.hh>
-
-#include <gazebo/sensors/Sensor.hh>
-#include <gazebo/sensors/ImuSensor.hh>
-
-#include <ignition/math/Angle.hh>
-#include <ignition/math/Pose3.hh>
-#include <ignition/math/Quaternion.hh>
-#include <ignition/math/Vector3.hh>
+// #include <gazebo_plugins/PubQueue.h>
 
 namespace gazebo
 {
-
-  class IMUPlugin : public SensorPlugin
+  class GazeboRosIMU : public ModelPlugin
   {
-  public:
-    // Constructor
-    IMUPlugin();
+    /// \brief Constructor
+    public: GazeboRosIMU();
 
-    // Destructor
-    virtual ~IMUPlugin();
+    /// \brief Destructor
+    public: virtual ~GazeboRosIMU();
 
-    // Load the plugin
-    void Load(sensors::SensorPtr _parent, sdf::ElementPtr _sdf);
+    /// \brief Load the controller
+    /// \param node XML config node
+    public: void Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf);
 
-    // Updated on each simulation iteration
-    void OnUpdate(const common::UpdateInfo &);
+    /// \brief Update the controller
+    protected: virtual void UpdateChild();
 
-    // Add noise
-    // double GaussianKernel(double mu, double sigma);
+    /// \brief The parent World
+    private: physics::WorldPtr world_;
 
-  private:
-    // Topic used for communication
-    std::string topic_name_;
+    /// \brief The link referred to by this plugin
+    private: physics::LinkPtr link;
 
-    // World Name
-    std::string world_name_;
+    /// \brief pointer to ros node
+    private: ros::NodeHandle* rosnode_;
+    private: ros::Publisher pub_;
+    // private: PubQueue<sensor_msgs::Imu>::Ptr pub_Queue;
 
-    // Pointer to the model
-    physics::ModelPtr model_;
+    /// \brief ros message
+    private: sensor_msgs::Imu imu_msg_;
 
-    // Pointer to the sensor.
-    sensors::ImuSensor* sensor_;
-    // sensors::SensorPtr sensor_;
+    /// \brief store link name
+    private: std::string link_name_;
 
-    // SDF root element
-    sdf::ElementPtr sdf_;
+    /// \brief store frame name
+    private: std::string frame_name_;
 
-    // Orientation data from the sensor.
-    ignition::math::Quaterniond orientation;
+    /// \brief topic name
+    private: std::string topic_name_;
 
-    // Linear acceleration data from the sensor.
-    ignition::math::Vector3d accelerometer_data;
+    /// \brief allow specifying constant xyz and rpy offsets
+    private: ignition::math::Pose3d offset_;
 
-    // Angular velocity data from the sensor.
-    ignition::math::Vector3d gyroscope_data;
+    /// \brief A mutex to lock access to fields
+    /// that are used in message callbacks
+    private: boost::mutex lock_;
 
-    // Sensor update rate.
-    double update_rate;
+    /// \brief save last_time
+    private: common::Time last_time_;
+    private: ignition::math::Vector3d last_vpos_;
+    private: ignition::math::Vector3d last_veul_;
+    private: ignition::math::Vector3d apos_;
+    private: ignition::math::Vector3d aeul_;
 
-    // Gaussian noise.
-    double gaussian_noise;
+    // rate control
+    private: double update_rate_;
 
-    // Offset parameter, position part is unused.
-    ignition::math::Pose3d offset;
+    /// \brief: keep initial pose to offset orientation in imu message
+    private: ignition::math::Pose3d initial_pose_;
 
-    // Listen to the update event
-    // The event is broadcasted every simulation iteration
-    event::ConnectionPtr connection;
+    /// \brief Gaussian noise
+    private: double gaussian_noise_;
 
+    /// \brief Gaussian noise generator
+    private: double GaussianKernel(double mu, double sigma);
+
+    /// \brief for setting ROS name space
+    private: std::string robot_namespace_;
+
+    /// \brief call back when using service
+    // private: bool ServiceCallback(std_srvs::Empty::Request &req,
+    //                               std_srvs::Empty::Response &res);
+
+    // private: ros::ServiceServer srv_;
+    // private: std::string service_name_;
+
+    // private: ros::CallbackQueue imu_queue_;
+    // private: void IMUQueueThread();
+    // private: boost::thread callback_queue_thread_;
+
+    // Pointer to the update event connection
+    private: event::ConnectionPtr update_connection_;
+
+    // deferred load in case ros is blocking
+    private: sdf::ElementPtr sdf;
+    private: void LoadThread();
+    private: boost::thread deferred_load_thread_;
+    private: unsigned int seed;
+
+    // ros publish multi queue, prevents publish() blocking
+    // private: PubMultiQueue pmq;
   };
 }
-
 #endif
