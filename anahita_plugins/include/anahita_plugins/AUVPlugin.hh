@@ -1,7 +1,10 @@
 #ifndef AUVPLUGIN_HH
 #define AUVPLUGIN_HH
 
-#include <ros/ros.h>
+#include <thread>
+#include "ros/ros.h"
+#include "ros/callback_queue.h"
+#include "ros/subscribe_options.h"
 
 #include <gazebo/gazebo.hh>
 #include <gazebo/physics/Link.hh>
@@ -29,6 +32,7 @@ namespace gazebo
         public: virtual void Load(physics::ModelPtr, sdf::ElementPtr);
         public: virtual void Update();
         public: virtual void Init();
+        public: void QueueThread();
         public: double ThrustConversionFnc(int pwm);
 
         public: void SidewardBackCB (const std_msgs::Int32::ConstPtr&);
@@ -81,20 +85,22 @@ namespace gazebo
         protected: int thrustMax;
 
         // \brief: to store pwm sent from controller
-        protected: int pwm_north_ = 1500;
-        protected: int pwm_south_ = 1500;
-        protected: int pwm_east_ = 1500;
-        protected: int pwm_west_ = 1500;
-        protected: int pwm_north_east_ = 1500;
-        protected: int pwm_north_west_ = 1500;
-        protected: int pwm_south_west_ = 1500;
-        protected: int pwm_south_east_ = 1500;
+        protected: int pwm_north_ = 0;
+        protected: int pwm_south_ = 0;
+        protected: int pwm_east_ = 0;
+        protected: int pwm_west_ = 0;
+        protected: int pwm_north_east_ = 0;
+        protected: int pwm_north_west_ = 0;
+        protected: int pwm_south_west_ = 0;
+        protected: int pwm_south_east_ = 0;
 
         /// \brief Thruster topics prefix
         protected: std::string topicPrefix;
 
         // ROS node
-        private: ros::NodeHandle* nh_;
+        private: std::unique_ptr<ros::NodeHandle> nh_;
+        private: ros::CallbackQueue rosQueue;
+        private: std::thread rosQueueThread;
 
         // subscriber to the topics published by the pwm_publisher
         protected: ros::Subscriber north_sub_;
