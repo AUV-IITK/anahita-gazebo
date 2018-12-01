@@ -42,7 +42,7 @@
   </link>
   <link
     name="north_west">
-    <inertial>
+    <!-- <inertial>
       <origin
         xyz="-0.0393438959155203 -0.242481861765712 0.249031898623319"
         rpy="0 0 0" />
@@ -55,7 +55,7 @@
         iyy="3.39680094685973E-05"
         iyz="3.67502974934373E-08"
         izz="6.95535597314332E-05" />
-    </inertial>
+    </inertial> -->
     <visual>
       <origin
         xyz="0 0 0"
@@ -93,9 +93,13 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  <gazebo reference="north_west_joint">
+    <disableFixedJointLumping>true</disableFixedJointLumping> 
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
   <link
     name="north_east">
-    <inertial>
+    <!-- <inertial>
       <origin
         xyz="0.246286120004883 -0.244815642617162 0.248544702903162"
         rpy="0 0 0" />
@@ -108,7 +112,7 @@
         iyy="3.39680094685973E-05"
         iyz="3.67502974934373E-08"
         izz="6.95535597314332E-05" />
-    </inertial>
+    </inertial> -->
     <visual>
       <origin
         xyz="0 0 0"
@@ -146,9 +150,13 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  <gazebo reference="north_east_joint">
+    <disableFixedJointLumping>true</disableFixedJointLumping> 
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
   <link
     name="south_west">
-    <inertial>
+    <!-- <inertial>
       <origin
         xyz="0.262966650034313 -0.259556533005053 0.248544702903159"
         rpy="0 0 0" />
@@ -161,7 +169,7 @@
         iyy="3.39680094685973E-05"
         iyz="3.67502974934373E-08"
         izz="6.95535597314332E-05" />
-    </inertial>
+    </inertial> -->
     <visual>
       <origin
         xyz="0 0 0"
@@ -199,9 +207,13 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  <gazebo reference="south_west_joint">
+    <disableFixedJointLumping>true</disableFixedJointLumping> 
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
   <link
     name="south_east">
-    <inertial>
+    <!-- <inertial>
       <origin
         xyz="-0.0678755555583847 -0.259162391795143 0.249031898623013"
         rpy="0 0 0" />
@@ -214,7 +226,7 @@
         iyy="3.39680094685973E-05"
         iyz="3.67502974934373E-08"
         izz="6.95535597314332E-05" />
-    </inertial>
+    </inertial> -->
     <visual>
       <origin
         xyz="0 0 0"
@@ -252,6 +264,10 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  <gazebo reference="south_east_joint">
+    <disableFixedJointLumping>true</disableFixedJointLumping> 
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
   <link
     name="north">
     <inertial>
@@ -305,6 +321,11 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  <gazebo reference="north_joint">
+    <disableFixedJointLumping>true</disableFixedJointLumping> 
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
+
   <link
     name="south">
     <inertial>
@@ -358,6 +379,11 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  <gazebo reference="south_joint">
+    <disableFixedJointLumping>true</disableFixedJointLumping> 
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
+
   <link
     name="east">
     <inertial>
@@ -411,6 +437,10 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  <gazebo reference="east_joint">
+    <disableFixedJointLumping>true</disableFixedJointLumping> 
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
   <link
     name="west">
     <inertial>
@@ -464,9 +494,14 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  <gazebo reference="west_joint">
+    <disableFixedJointLumping>true</disableFixedJointLumping> 
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
+
   <link
     name="front_camera">
-    <inertial>
+    <!-- <inertial>
       <origin
         xyz="0.134891038483645 -0.0313156526042144 -0.0733056023988168"
         rpy="0 0 0" />
@@ -479,7 +514,7 @@
         iyy="0.00028126049412029"
         iyz="-9.58708953127277E-07"
         izz="0.000215299978177107" />
-    </inertial>
+    </inertial> -->
     <visual>
       <origin
         xyz="0 0 0"
@@ -517,9 +552,13 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  <gazebo reference="front_camera_joint">
+    <disableFixedJointLumping>true</disableFixedJointLumping> 
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
   <link
     name="bottom_camera">
-    <inertial>
+    <!-- <inertial>
       <origin
         xyz="0.134891037411843 0.0313156526042145 0.0733056043710611"
         rpy="0 0 0" />
@@ -532,7 +571,7 @@
         iyy="0.00028126049412029"
         iyz="-9.58708954452536E-07"
         izz="0.000215299979173229" />
-    </inertial>
+    </inertial> -->
     <visual>
       <origin
         xyz="0 0 0"
@@ -570,9 +609,14 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  <gazebo reference="bottom_camera_joint">
+    <disableFixedJointLumping>true</disableFixedJointLumping> 
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
+
   <link
     name="imu">
-    <inertial>
+    <!-- <inertial>
       <origin
         xyz="0.0974056730934414 0.115788048053613 0.145151708950172"
         rpy="0 0 0" />
@@ -585,7 +629,7 @@
         iyy="0.000200383065272703"
         iyz="5.7126114865763E-08"
         izz="7.39184193573262E-06" />
-    </inertial>
+    </inertial> -->
     <visual>
       <origin
         xyz="0 0 0"
@@ -623,6 +667,10 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  <gazebo reference="imu_joint">
+    <disableFixedJointLumping>true</disableFixedJointLumping> 
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
   <gazebo>
     <plugin name="AUVPlugin" filename="libAUVPlugin.so">
       <thrustEfficiency>0.9</thrustEfficiency>
