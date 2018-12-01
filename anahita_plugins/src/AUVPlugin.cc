@@ -95,7 +95,7 @@ void AUV::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
 
 double AUV::ThrustConversionFnc(int pwm) {
     int x = pwm;
-    double A = -222.54;
+    double A = -231.54;
     double B = 0.42;
     double C = -0.00027;
     double D = 0.0000000622;
@@ -148,35 +148,35 @@ void AUV::Update() {
 }
 
 void AUV::SidewardBackCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_south_ = _msg->data;
+    this->pwm_south_ = this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::SidewardFrontCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_north_ = _msg->data;
+    this->pwm_north_ = this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::ForwardLeftCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_west_ = _msg->data;
+    this->pwm_west_ = this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::ForwardRightCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_east_ = _msg->data;
+    this->pwm_east_ = this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::UpwardNorthEastCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_north_east_ = _msg->data;
+    this->pwm_north_east_ = this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::UpwardNorthWestCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_north_west_ = _msg->data;
+    this->pwm_north_west_ = this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::UpwardSouthEastCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_south_east_ = _msg->data;
+    this->pwm_south_east_ = this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::UpwardSouthWestCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_south_west_ = _msg->data;
+    this->pwm_south_west_ = this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 GZ_REGISTER_MODEL_PLUGIN(AUV)
