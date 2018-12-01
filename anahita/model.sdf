@@ -1,161 +1,166 @@
-<sdf version='1.6'>
-  <model name='anahita'>
-    <pose frame=''>0 0 3 0 0 0</pose>
-    <link name='base_link'>
-      <pose frame=''>0 0 0 0 0 0</pose>
-      <gravity>1</gravity>
-      <inertial>
-        <pose frame=''>0 0 0 0 0 0</pose>
-        <mass>28.8347</mass>
-        <inertia>
-          <ixx>1.6824</ixx>
-          <ixy>0.173368</ixy>
-          <ixz>-0.0991492</ixz>
-          <iyy>2.4452</iyy>
-          <iyz>0.10826</iyz>
-          <izz>2.73303</izz>
-        </inertia>
-      </inertial>
-      <collision name='base_link_collision'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/base_link.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name='base_link_visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/base_link.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    
-    <link name='east'>
-      <gravity>1</gravity>
-      <inertial>
-        <pose frame=''>-0.00295 0.074853 -0.306919 -0 0.007278 -0</pose>
-        <mass>0.20903660674654</mass>
-        <inertia>
-          <ixx>3.6186371961113E-05</ixx>
-          <ixy>-6.5100321567023E-06</ixy>
-          <ixz>-9.55727910918306E-08</ixz>
-          <iyy>3.39680094685973E-05</iyy>
-          <iyz>3.67502974934373E-08</iyz>
-          <izz>6.95535597314332E-05</izz>
-        </inertia>
-      </inertial>
-      <collision name='base_link_fixed_joint_lump__east_collision_2'>
-        <pose frame=''>-0.00295 0.074853 -0.306919 -0 0.007278 -0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/east.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name='base_link_fixed_joint_lump__east_visual_2'>
-        <pose frame=''>-0.00295 0.074853 -0.306919 -0 0.007278 -0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/east.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    <joint name="east_joint" type="fixed">
-      <parent>base_link</parent>
-      <child>east</child>
-      <axis><xyz>0 0 0</xyz></axis>
-    </joint> 
-    
-    <link name='west'>
-      <gravity>1</gravity>
-      <inertial>
-        <pose frame=''>-0.001494 -0.133518 -0.106867 3.14159 0.007278 -0</pose>
-        <mass>0.20903660674654</mass>
-        <inertia>
-          <ixx>3.6186371961113E-05</ixx>
-          <ixy>-6.5100321567023E-06</ixy>
-          <ixz>-9.55727910918306E-08</ixz>
-          <iyy>3.39680094685973E-05</iyy>
-          <iyz>3.67502974934373E-08</iyz>
-          <izz>6.95535597314332E-05</izz>
-        </inertia>
-      </inertial>
-      <collision name='base_link_fixed_joint_lump__west_collision_11'>
-        <pose frame=''>-0.001494 -0.133518 -0.106867 3.14159 0.007278 -0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/west.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name='base_link_fixed_joint_lump__west_visual_11'>
-        <pose frame=''>-0.001494 -0.133518 -0.106867 3.14159 0.007278 -0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/west.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    <joint name="west_joint" type="fixed">
-      <parent>base_link</parent>
-      <child>west</child>
-      <axis><xyz>0 0 0</xyz></axis>
-    </joint> 
-    
-    <link name="north">
-      <gravity>1</gravity>
-      <inertial>
-        <pose frame=''>-0.253534 0.031211 -0.089973 3.14159 -0 -1.5708</pose>
-        <mass>0.20903660674654</mass>
-        <inertia>
-          <ixx>3.6186371961113E-05</ixx>
-          <ixy>-6.50989826823458E-06</ixy>
-          <ixz>-9.51038686020477E-08</ixz>
-          <iyy>3.39684105605489E-05</iyy>
-          <iyz>3.6553730336142E-08</iyz>
-          <izz>6.95541825589081E-05</izz>
-        </inertia>
-      </inertial>
-      <collision name='base_link_fixed_joint_lump__north_collision_6'>
-        <pose frame=''>-0.253534 0.031211 -0.089973 3.14159 -0 -1.5708</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>model://anahita/meshes/north.STL</uri>
-            </mesh>
-          </geometry>
-      </collision>
-      <visual name='base_link_fixed_joint_lump__north_visual_6'>
-        <pose frame=''>-0.253534 0.031211 -0.089973 3.14159 -0 -1.5708</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>model://anahita/meshes/north.STL</uri>
-            </mesh>
-          </geometry>
-      </visual>
-    </link>
-    <joint name="north_joint" type="fixed">
-      <parent>base_link</parent>
-      <child>north</child>
-      <axis><xyz>0 0 0</xyz></axis>
-    </joint> 
-    
-    <link name="south_west">
-      <gravity>1</gravity>
-      <!-- <inertial>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.6">
+   <model name="anahita">
+      <pose frame="">0 0 3 0 0 0</pose>
+      <link name="base_link">
+         <pose frame="">0 0 0 0 0 0</pose>
+         <gravity>1</gravity>
+         <inertial>
+            <pose frame="">0 0 0 0 0 0</pose>
+            <mass>28.8347</mass>
+            <inertia>
+               <ixx>1.6824</ixx>
+               <ixy>0.173368</ixy>
+               <ixz>-0.0991492</ixz>
+               <iyy>2.4452</iyy>
+               <iyz>0.10826</iyz>
+               <izz>2.73303</izz>
+            </inertia>
+         </inertial>
+         <collision name="base_link_collision">
+            <pose frame="">0 0 0 0 -0 0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/base_link.STL</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="base_link_visual">
+            <pose frame="">0 0 0 0 -0 0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/base_link.STL</uri>
+               </mesh>
+            </geometry>
+         </visual>
+      </link>
+      <link name="east">
+         <gravity>1</gravity>
+         <inertial>
+            <pose frame="">-0.00295 0.074853 -0.306919 -0 0.007278 -0</pose>
+            <mass>0.20903660674654</mass>
+            <inertia>
+               <ixx>3.6186371961113E-05</ixx>
+               <ixy>-6.5100321567023E-06</ixy>
+               <ixz>-9.55727910918306E-08</ixz>
+               <iyy>3.39680094685973E-05</iyy>
+               <iyz>3.67502974934373E-08</iyz>
+               <izz>6.95535597314332E-05</izz>
+            </inertia>
+         </inertial>
+         <collision name="base_link_fixed_joint_lump__east_collision_2">
+            <pose frame="">-0.00295 0.074853 -0.306919 -0 0.007278 -0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/east.STL</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="base_link_fixed_joint_lump__east_visual_2">
+            <pose frame="">-0.00295 0.074853 -0.306919 -0 0.007278 -0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/east.STL</uri>
+               </mesh>
+            </geometry>
+         </visual>
+      </link>
+      <joint name="east_joint" type="fixed">
+         <parent>base_link</parent>
+         <child>east</child>
+         <axis>
+            <xyz>0 0 0</xyz>
+         </axis>
+      </joint>
+      <link name="west">
+         <gravity>1</gravity>
+         <inertial>
+            <pose frame="">-0.001494 -0.133518 -0.106867 3.14159 0.007278 -0</pose>
+            <mass>0.20903660674654</mass>
+            <inertia>
+               <ixx>3.6186371961113E-05</ixx>
+               <ixy>-6.5100321567023E-06</ixy>
+               <ixz>-9.55727910918306E-08</ixz>
+               <iyy>3.39680094685973E-05</iyy>
+               <iyz>3.67502974934373E-08</iyz>
+               <izz>6.95535597314332E-05</izz>
+            </inertia>
+         </inertial>
+         <collision name="base_link_fixed_joint_lump__west_collision_11">
+            <pose frame="">-0.001494 -0.133518 -0.106867 3.14159 0.007278 -0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/west.STL</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="base_link_fixed_joint_lump__west_visual_11">
+            <pose frame="">-0.001494 -0.133518 -0.106867 3.14159 0.007278 -0</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/west.STL</uri>
+               </mesh>
+            </geometry>
+         </visual>
+      </link>
+      <joint name="west_joint" type="fixed">
+         <parent>base_link</parent>
+         <child>west</child>
+         <axis>
+            <xyz>0 0 0</xyz>
+         </axis>
+      </joint>
+      <link name="north">
+         <gravity>1</gravity>
+         <inertial>
+            <pose frame="">-0.253534 0.031211 -0.089973 3.14159 -0 -1.5708</pose>
+            <mass>0.20903660674654</mass>
+            <inertia>
+               <ixx>3.6186371961113E-05</ixx>
+               <ixy>-6.50989826823458E-06</ixy>
+               <ixz>-9.51038686020477E-08</ixz>
+               <iyy>3.39684105605489E-05</iyy>
+               <iyz>3.6553730336142E-08</iyz>
+               <izz>6.95541825589081E-05</izz>
+            </inertia>
+         </inertial>
+         <collision name="base_link_fixed_joint_lump__north_collision_6">
+            <pose frame="">-0.253534 0.031211 -0.089973 3.14159 -0 -1.5708</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/north.STL</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="base_link_fixed_joint_lump__north_visual_6">
+            <pose frame="">-0.253534 0.031211 -0.089973 3.14159 -0 -1.5708</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/north.STL</uri>
+               </mesh>
+            </geometry>
+         </visual>
+      </link>
+      <joint name="north_joint" type="fixed">
+         <parent>base_link</parent>
+         <child>north</child>
+         <axis>
+            <xyz>0 0 0</xyz>
+         </axis>
+      </joint>
+      <link name="south_west">
+         <gravity>1</gravity>
+         <!-- <inertial>
         <pose frame=''>0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
         <mass>0.20903660674654</mass>
         <inertia>
@@ -167,34 +172,74 @@
           <izz>6.95541825589081E-05</izz>
         </inertia>
       </inertial> -->
-      <collision name='base_link_fixed_joint_lump__south_west_collision_10'>
-        <pose frame=''>0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>model://anahita/meshes/south_west.STL</uri>
-            </mesh>
-          </geometry>
-      </collision>
-      <visual name='base_link_fixed_joint_lump__south_west_visual_10'>
-        <pose frame=''>0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>model://anahita/meshes/south_west.STL</uri>
-            </mesh>
-          </geometry>
-      </visual>
-    </link>
-    <joint name="south_west_joint" type="fixed">
-      <parent>base_link</parent>
-      <child>south_west</child>
-      <axis><xyz>0 0 0</xyz></axis>
-    </joint> 
-    
-    <link name="bottom_camera">
-      <gravity>1</gravity>
-      <!-- <inertial>
+         <collision name="base_link_fixed_joint_lump__south_west_collision_10">
+            <pose frame="">0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/south_west.STL</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="base_link_fixed_joint_lump__south_west_visual_10">
+            <pose frame="">0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/south_west.STL</uri>
+               </mesh>
+            </geometry>
+         </visual>
+      </link>
+      <joint name="south_west_joint" type="fixed">
+         <parent>base_link</parent>
+         <child>south_west</child>
+         <axis>
+            <xyz>0 0 0</xyz>
+         </axis>
+      </joint>
+      <link name="bottom_camera">
+         <gravity>1</gravity>
+         <sensor type="camera" name="bottom_camera">
+            <update_rate>30.0</update_rate>
+            <camera name="bottom_camera">
+               <pose>+0.28034 0.105242 -0.329224 0 0 0</pose>
+               <horizontal_fov>1.3962634</horizontal_fov>
+               <image>
+                  <width>800</width>
+                  <height>800</height>
+                  <format>R8G8B8</format>
+               </image>
+               <clip>
+                  <near>0.02</near>
+                  <far>300</far>
+               </clip>
+               <noise>
+                  <type>gaussian</type>
+                  <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+                  <mean>0.0</mean>
+                  <stddev>0.007</stddev>
+               </noise>
+               v
+            </camera>
+            <plugin name="GazeboROSCamera" filename="libgazebo_ros_camera.so">
+               <alwaysOn>true</alwaysOn>
+               <updateRate>0.0</updateRate>
+               <cameraName>varun/bottom_camera</cameraName>
+               <imageTopicName>image_raw</imageTopicName>
+               <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+               <frameName>camera_link</frameName>
+               <hackBaseline>0.07</hackBaseline>
+               <distortionK1>0.0</distortionK1>
+               <distortionK2>0.0</distortionK2>
+               <distortionK3>0.0</distortionK3>
+               <distortionT1>0.0</distortionT1>
+               <distortionT2>0.0</distortionT2>
+            </plugin>
+         </sensor>
+         <!-- <inertial>
         <pose frame=''>-0.0177 -0.167436 -0.220985 3.14159 -0 1.5708</pose>
         <mass>0.892969587106331</mass>
         <inertia>
@@ -206,72 +251,74 @@
           <izz>0.000215299979173229</izz>
         </inertia>
       </inertial> -->
-      <collision name='base_link_fixed_joint_lump__bottom_camera_collision_1'>
-        <pose frame=''>-0.0177 -0.167436 -0.220985 3.14159 -0 1.5708</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/bottom_camera.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name='base_link_fixed_joint_lump__bottom_camera_visual_1'>
-        <pose frame=''>-0.0177 -0.167436 -0.220985 3.14159 -0 1.5708</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/bottom_camera.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link> 
-    <joint name="bottom_camera_joint" type="fixed">
-      <parent>base_link</parent>
-      <child>bottom_camera</child>
-      <axis><xyz>0 0 0</xyz></axis>
-    </joint> 
-    
-    <link name="south">
-      <gravity>1</gravity>
-      <inertial>
-        <pose frame=''>0.364311 -0.091678 -0.113872 3.14159 0 1.5708</pose>
-        <mass>0.20903660674654</mass>
-        <inertia>
-          <ixx>3.6186371961113E-05</ixx>
-          <ixy>-6.50989826823458E-06</ixy>
-          <ixz>-9.51038686020477E-08</ixz>
-          <iyy>3.39684105605489E-05</iyy>
-          <iyz>3.6553730336142E-08</iyz>
-          <izz>6.95541825589081E-05</izz>
-        </inertia>
-      </inertial>
-      <visual name='base_link_fixed_joint_lump__south_visual_9'>
-        <pose frame=''>0.364311 -0.091678 -0.113872 3.14159 0 1.5708</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/south.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <collision name='base_link_fixed_joint_lump__south_collision_9'>
-        <pose frame=''>0.364311 -0.091678 -0.113872 3.14159 0 1.5708</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/south.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-    </link>
-    <joint name="south_joint" type="fixed">
-      <parent>base_link</parent>
-      <child>south</child>
-      <axis><xyz>0 0 0</xyz></axis>
-    </joint> 
-    
-    <link name="south_east">
-      <!-- <inertial>
+         <collision name="base_link_fixed_joint_lump__bottom_camera_collision_1">
+            <pose frame="">-0.0177 -0.167436 -0.220985 3.14159 -0 1.5708</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/bottom_camera.STL</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="base_link_fixed_joint_lump__bottom_camera_visual_1">
+            <pose frame="">-0.0177 -0.167436 -0.220985 3.14159 -0 1.5708</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/bottom_camera.STL</uri>
+               </mesh>
+            </geometry>
+         </visual>
+      </link>
+      <joint name="bottom_camera_joint" type="fixed">
+         <parent>base_link</parent>
+         <child>bottom_camera</child>
+         <axis>
+            <xyz>0 0 0</xyz>
+         </axis>
+      </joint>
+      <link name="south">
+         <gravity>1</gravity>
+         <inertial>
+            <pose frame="">0.364311 -0.091678 -0.113872 3.14159 0 1.5708</pose>
+            <mass>0.20903660674654</mass>
+            <inertia>
+               <ixx>3.6186371961113E-05</ixx>
+               <ixy>-6.50989826823458E-06</ixy>
+               <ixz>-9.51038686020477E-08</ixz>
+               <iyy>3.39684105605489E-05</iyy>
+               <iyz>3.6553730336142E-08</iyz>
+               <izz>6.95541825589081E-05</izz>
+            </inertia>
+         </inertial>
+         <visual name="base_link_fixed_joint_lump__south_visual_9">
+            <pose frame="">0.364311 -0.091678 -0.113872 3.14159 0 1.5708</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/south.STL</uri>
+               </mesh>
+            </geometry>
+         </visual>
+         <collision name="base_link_fixed_joint_lump__south_collision_9">
+            <pose frame="">0.364311 -0.091678 -0.113872 3.14159 0 1.5708</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/south.STL</uri>
+               </mesh>
+            </geometry>
+         </collision>
+      </link>
+      <joint name="south_joint" type="fixed">
+         <parent>base_link</parent>
+         <child>south</child>
+         <axis>
+            <xyz>0 0 0</xyz>
+         </axis>
+      </joint>
+      <link name="south_east">
+         <!-- <inertial>
         <pose frame=''>0.280834 0.105242 -0.426776 -0 -0 -0.785398</pose>
         <mass>0.20903660674654</mass>
         <inertia>
@@ -283,35 +330,75 @@
           <izz>6.95541825589081E-05</izz>
         </inertia>
       </inertial> -->
-      <gravity>1</gravity>
-      <visual name='base_link_fixed_joint_lump__south_east_visual_8'>
-        <pose frame=''>0.280834 0.105242 -0.426776 -0 -0 -0.785398</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/south_east.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <collision name='base_link_fixed_joint_lump__south_east_collision_8'>
-        <pose frame=''>0.280834 0.105242 -0.426776 -0 -0 -0.785398</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/south_east.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-    </link>
-    <joint name="south_east_joint" type="fixed">
-      <parent>base_link</parent>
-      <child>south_east</child>
-      <axis><xyz>0 0 0</xyz></axis>
-    </joint> 
-    
-    <link name="front_camera">
-      <gravity>1</gravity>
-      <!-- <inertial>
+         <gravity>1</gravity>
+         <visual name="base_link_fixed_joint_lump__south_east_visual_8">
+            <pose frame="">0.280834 0.105242 -0.426776 -0 -0 -0.785398</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/south_east.STL</uri>
+               </mesh>
+            </geometry>
+         </visual>
+         <collision name="base_link_fixed_joint_lump__south_east_collision_8">
+            <pose frame="">0.280834 0.105242 -0.426776 -0 -0 -0.785398</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/south_east.STL</uri>
+               </mesh>
+            </geometry>
+         </collision>
+      </link>
+      <joint name="south_east_joint" type="fixed">
+         <parent>base_link</parent>
+         <child>south_east</child>
+         <axis>
+            <xyz>0 0 0</xyz>
+         </axis>
+      </joint>
+      <link name="front_camera">
+         <gravity>1</gravity>
+         <sensor type="camera" name="front_camera">
+            <update_rate>30.0</update_rate>
+            <camera name="front_camera">
+               <pose>+0.28034 0.105242 -0.329224 0 0 0</pose>
+               <horizontal_fov>1.3962634</horizontal_fov>
+               <image>
+                  <width>800</width>
+                  <height>800</height>
+                  <format>R8G8B8</format>
+               </image>
+               <clip>
+                  <near>0.02</near>
+                  <far>300</far>
+               </clip>
+               <noise>
+                  <type>gaussian</type>
+                  <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+                  <mean>0.0</mean>
+                  <stddev>0.007</stddev>
+               </noise>
+               v
+            </camera>
+            <plugin name="GazeboROSCamera" filename="libgazebo_ros_camera.so">
+               <alwaysOn>true</alwaysOn>
+               <updateRate>0.0</updateRate>
+               <cameraName>varun/front_camera</cameraName>
+               <imageTopicName>image_raw</imageTopicName>
+               <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+               <frameName>camera_link</frameName>
+               <hackBaseline>0.07</hackBaseline>
+               <distortionK1>0.0</distortionK1>
+               <distortionK2>0.0</distortionK2>
+               <distortionK3>0.0</distortionK3>
+               <distortionT1>0.0</distortionT1>
+               <distortionT2>0.0</distortionT2>
+            </plugin>
+         </sensor>
+         <!-- <inertial>
         <pose frame=''>-0.285555 0.109208 -0.329224 -1.5708 -0 -1.5708</pose>
         <mass>0.892969587106332</mass>
         <inertia>
@@ -323,34 +410,35 @@
           <izz>0.000215299979173229</izz>
         </inertia>
       </inertial> -->
-      <collision name='base_link_fixed_joint_lump__front_camera_collision_3'>
-        <pose frame=''>-0.285555 0.109208 -0.329224 -1.5708 -0 -1.5708</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/front_camera.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name='base_link_fixed_joint_lump__front_camera_visual_3'>
-        <pose frame=''>-0.285555 0.109208 -0.329224 -1.5708 -0 -1.5708</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/front_camera.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    <joint name="front_camera_joint" type="fixed">
-      <parent>base_link</parent>
-      <child>front_camera</child>
-      <axis><xyz>0 0 0</xyz></axis>
-    </joint> 
-
-    <link name="imu">
-      <gravity>1</gravity>
-      <!-- <inertial>
+         <collision name="base_link_fixed_joint_lump__front_camera_collision_3">
+            <pose frame="">-0.285555 0.109208 -0.329224 -1.5708 -0 -1.5708</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/front_camera.STL</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="base_link_fixed_joint_lump__front_camera_visual_3">
+            <pose frame="">-0.285555 0.109208 -0.329224 -1.5708 -0 -1.5708</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/front_camera.STL</uri>
+               </mesh>
+            </geometry>
+         </visual>
+      </link>
+      <joint name="front_camera_joint" type="fixed">
+         <parent>base_link</parent>
+         <child>front_camera</child>
+         <axis>
+            <xyz>0 0 0</xyz>
+         </axis>
+      </joint>
+      <link name="imu">
+         <gravity>1</gravity>
+         <!-- <inertial>
         <pose frame=''>0.127326 0.084549 -0.212566 0 0 3.14159</pose>
         <mass>0.916442123023218</mass>
         <inertia>
@@ -362,34 +450,35 @@
           <izz>7.39184193573262E-06</izz>
         </inertia>
       </inertial> -->
-      <collision name='base_link_fixed_joint_lump__imu_collision_4'>
-        <pose frame=''>0.127326 0.084549 -0.212566 0 0 3.14159</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/imu.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name='base_link_fixed_joint_lump__imu_visual_4'>
-        <pose frame=''>0.127326 0.084549 -0.212566 0 0 3.14159</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/imu.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    <joint name="imu_joint" type="fixed">
-      <parent>base_link</parent>
-      <child>imu</child>
-      <axis><xyz>0 0 0</xyz></axis>
-    </joint> 
-
-    <link name="north_east">
-      <gravity>1</gravity>
-      <!-- <inertial>
+         <collision name="base_link_fixed_joint_lump__imu_collision_4">
+            <pose frame="">0.127326 0.084549 -0.212566 0 0 3.14159</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/imu.STL</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="base_link_fixed_joint_lump__imu_visual_4">
+            <pose frame="">0.127326 0.084549 -0.212566 0 0 3.14159</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/imu.STL</uri>
+               </mesh>
+            </geometry>
+         </visual>
+      </link>
+      <joint name="imu_joint" type="fixed">
+         <parent>base_link</parent>
+         <child>imu</child>
+         <axis>
+            <xyz>0 0 0</xyz>
+         </axis>
+      </joint>
+      <link name="north_east">
+         <gravity>1</gravity>
+         <!-- <inertial>
         <pose frame=''>-0.297678 -0.031058 -0.426289 0 0 0.785398</pose>
         <mass>0.20903660674654</mass>
         <inertia>
@@ -401,34 +490,35 @@
           <izz>6.95541825589081E-05</izz>
         </inertia>
       </inertial> -->
-      <collision name='base_link_fixed_joint_lump__north_east_collision_5'>
-        <pose frame=''>-0.297678 -0.031058 -0.426289 0 0 0.785398</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/north_east.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name='base_link_fixed_joint_lump__north_east_visual_5'>
-        <pose frame=''>-0.297678 -0.031058 -0.426289 0 0 0.785398</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/north_east.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    <joint name="north_east_joint" type="fixed">
-      <parent>base_link</parent>
-      <child>north_east</child>
-      <axis><xyz>0 0 0</xyz></axis>
-    </joint> 
-
-    <link name="north_west">   
-      <gravity>1</gravity>
-      <!-- <inertial>
+         <collision name="base_link_fixed_joint_lump__north_east_collision_5">
+            <pose frame="">-0.297678 -0.031058 -0.426289 0 0 0.785398</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/north_east.STL</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="base_link_fixed_joint_lump__north_east_visual_5">
+            <pose frame="">-0.297678 -0.031058 -0.426289 0 0 0.785398</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/north_east.STL</uri>
+               </mesh>
+            </geometry>
+         </visual>
+      </link>
+      <joint name="north_east_joint" type="fixed">
+         <parent>base_link</parent>
+         <child>north_east</child>
+         <axis>
+            <xyz>0 0 0</xyz>
+         </axis>
+      </joint>
+      <link name="north_west">
+         <gravity>1</gravity>
+         <!-- <inertial>
         <pose frame=''>-0.149697 -0.173659 -0.426776 0 -0 2.35619</pose>
         <mass>0.20903660674654</mass>
         <inertia>
@@ -440,44 +530,46 @@
           <izz>6.95541825589081E-05</izz>
         </inertia>
       </inertial> -->
-      <collision name='base_link_fixed_joint_lump__north_west_collision_7'>
-        <pose frame=''>-0.149697 -0.173659 -0.426776 0 -0 2.35619</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/north_west.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>     
-      <visual name='base_link_fixed_joint_lump__north_west_visual_7'>
-        <pose frame=''>-0.149697 -0.173659 -0.426776 0 -0 2.35619</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://anahita/meshes/north_west.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>     
-    </link>
-    <joint name="north_west_joint" type="fixed">
-      <parent>base_link</parent>
-      <child>north_west</child>
-      <axis><xyz>0 0 0</xyz></axis>
-    </joint> 
-    
-    <static>0</static>
-    <plugin name='AUVPlugin' filename='libAUVPlugin.so'>
-      <thrustEfficiency>0.9</thrustEfficiency>
-      <thrustMin>-7</thrustMin>
-      <thrustMax>7</thrustMax>
-      <robotNamespace>Anahita</robotNamespace>
-    </plugin>
-    <plugin name='GazeboRosIMU' filename='libimuPlugin.so'>
-      <topicName>/varun/sensors/imu/data</topicName>
-      <gaussianNoise>0.01</gaussianNoise>
-      <updateRate>50</updateRate>
-      <robotNamespace>Anahita</robotNamespace>
-      <bodyName>imu</bodyName>  
-    </plugin>
-  </model>
+         <collision name="base_link_fixed_joint_lump__north_west_collision_7">
+            <pose frame="">-0.149697 -0.173659 -0.426776 0 -0 2.35619</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/north_west.STL</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="base_link_fixed_joint_lump__north_west_visual_7">
+            <pose frame="">-0.149697 -0.173659 -0.426776 0 -0 2.35619</pose>
+            <geometry>
+               <mesh>
+                  <scale>1 1 1</scale>
+                  <uri>model://anahita/meshes/north_west.STL</uri>
+               </mesh>
+            </geometry>
+         </visual>
+      </link>
+      <joint name="north_west_joint" type="fixed">
+         <parent>base_link</parent>
+         <child>north_west</child>
+         <axis>
+            <xyz>0 0 0</xyz>
+         </axis>
+      </joint>
+      <static>0</static>
+      <plugin name="AUVPlugin" filename="libAUVPlugin.so">
+         <thrustEfficiency>0.9</thrustEfficiency>
+         <thrustMin>-7</thrustMin>
+         <thrustMax>7</thrustMax>
+         <robotNamespace>Anahita</robotNamespace>
+      </plugin>
+      <plugin name="GazeboRosIMU" filename="libimuPlugin.so">
+         <topicName>/varun/sensors/imu/data</topicName>
+         <gaussianNoise>0.01</gaussianNoise>
+         <updateRate>50</updateRate>
+         <robotNamespace>Anahita</robotNamespace>
+         <bodyName>imu</bodyName>
+      </plugin>
+   </model>
 </sdf>
+
