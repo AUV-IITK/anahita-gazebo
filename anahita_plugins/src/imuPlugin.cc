@@ -327,6 +327,7 @@ void GazeboRosIMU::UpdateChild()
       // publish to ros
       if (this->pub_.getNumSubscribers() > 0 && this->topic_name_ != "") {
           // this->pub_Queue->push(this->imu_msg_, this->pub_);
+          std::cout << "Publishing data" << std::endl;
           this->pub_.publish(this->imu_msg_);
       }
     }

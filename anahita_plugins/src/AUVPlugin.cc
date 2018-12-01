@@ -50,42 +50,42 @@ void AUV::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
 
     ros::SubscribeOptions so3 = ros::SubscribeOptions::create<std_msgs::Int32>(
         "/pwm/sidewardFront", 1,
-        boost::bind(&AUV::ForwardRightCB, this, _1),
+        boost::bind(&AUV::SidewardFrontCB, this, _1),
         ros::VoidPtr(), &this->rosQueue);
 
     ros::SubscribeOptions so4 = ros::SubscribeOptions::create<std_msgs::Int32>(
         "/pwm/sidewardBack", 1,
-        boost::bind(&AUV::ForwardRightCB, this, _1),
+        boost::bind(&AUV::SidewardBackCB, this, _1),
         ros::VoidPtr(), &this->rosQueue);
 
     ros::SubscribeOptions so5 = ros::SubscribeOptions::create<std_msgs::Int32>(
-        "/pwm/upwardNorthEast", 1,
-        boost::bind(&AUV::ForwardRightCB, this, _1),
+        "/pwm/upwardBack", 1,
+        boost::bind(&AUV::UpwardSouthEastCB, this, _1),
         ros::VoidPtr(), &this->rosQueue);
 
     ros::SubscribeOptions so6 = ros::SubscribeOptions::create<std_msgs::Int32>(
-        "/pwm/upwardNorthWest", 1,
-        boost::bind(&AUV::ForwardRightCB, this, _1),
+        "/pwm/upwardBack", 1,
+        boost::bind(&AUV::UpwardSouthWestCB, this, _1),
         ros::VoidPtr(), &this->rosQueue);
 
     ros::SubscribeOptions so7 = ros::SubscribeOptions::create<std_msgs::Int32>(
-        "/pwm/upwardSouthEast", 1,
-        boost::bind(&AUV::ForwardRightCB, this, _1),
+        "/pwm/upwardFront", 1,
+        boost::bind(&AUV::UpwardNorthEastCB, this, _1),
         ros::VoidPtr(), &this->rosQueue);
 
     ros::SubscribeOptions so8 = ros::SubscribeOptions::create<std_msgs::Int32>(
-        "/pwm/upwardSouthWest", 1,
-        boost::bind(&AUV::ForwardRightCB, this, _1),
+        "/pwm/upwardFront", 1,
+        boost::bind(&AUV::UpwardNorthWestCB, this, _1),
         ros::VoidPtr(), &this->rosQueue);
 
     this->west_sub_ = this->nh_->subscribe(so1);
     this->east_sub_ = this->nh_->subscribe(so2);
     this->north_sub_ = this->nh_->subscribe(so3);
     this->south_sub_ = this->nh_->subscribe(so4);
-    this->south_east_sub_ = this->nh_->subscribe(so7);
-    this->north_east_sub_ = this->nh_->subscribe(so5);
-    this->south_west_sub_ = this->nh_->subscribe(so8);
-    this->north_west_sub_ = this->nh_->subscribe(so6);
+    this->south_east_sub_ = this->nh_->subscribe(so5);
+    this->south_west_sub_ = this->nh_->subscribe(so6);
+    this->north_east_sub_ = this->nh_->subscribe(so7);
+    this->north_west_sub_ = this->nh_->subscribe(so8);
 
     this->rosQueueThread = std::thread(std::bind(&AUV::QueueThread, this));
 
@@ -140,35 +140,27 @@ void AUV::Update() {
     this->south_link_->AddRelativeForce(ignition::math::Vector3d(0, pwm_south_, 0));
     this->east_link_->AddRelativeForce(ignition::math::Vector3d(pwm_east_, 0, 0));
     this->west_link_->AddRelativeForce(ignition::math::Vector3d(pwm_west_, 0, 0));
-    this->north_east_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
-    this->north_west_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
-    this->south_east_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
-    this->south_west_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
-
-}
-
-void AUV::Init() {
+    this->north_east_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, pwm_north_east_));
+    this->north_west_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, pwm_north_west_));
+    this->south_east_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, pwm_south_east_));
+    this->south_west_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, pwm_south_west_));
 
 }
 
 void AUV::SidewardBackCB(const std_msgs::Int32::ConstPtr& _msg) {
     this->pwm_south_ = _msg->data;
-    // cout << "pwm_south_: " << pwm_south_ << endl;
 }
 
 void AUV::SidewardFrontCB(const std_msgs::Int32::ConstPtr& _msg) {
     this->pwm_north_ = _msg->data;
-    // cout << "pwm_north_: " << pwm_north_ << endl;
 }
 
 void AUV::ForwardLeftCB(const std_msgs::Int32::ConstPtr& _msg) {
     this->pwm_west_ = _msg->data;
-    // cout << "pwm_west_: " << pwm_west_ << endl;
 }
 
 void AUV::ForwardRightCB(const std_msgs::Int32::ConstPtr& _msg) {
     this->pwm_east_ = _msg->data;
-    // cout << "pwm_east_: " << pwm_east_ << endl;
 }
 
 void AUV::UpwardNorthEastCB(const std_msgs::Int32::ConstPtr& _msg) {

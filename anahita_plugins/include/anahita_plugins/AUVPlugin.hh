@@ -31,7 +31,6 @@ namespace gazebo
 
         public: virtual void Load(physics::ModelPtr, sdf::ElementPtr);
         public: virtual void Update();
-        public: virtual void Init();
         public: void QueueThread();
         public: double ThrustConversionFnc(int pwm);
 

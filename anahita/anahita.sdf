@@ -1,0 +1,671 @@
+<sdf version='1.6'>
+  <model name='anahita'>
+    <link name='base_link'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>24.46</mass>
+        <inertia>
+          <ixx>1.465</ixx>
+          <ixy>0.178</ixy>
+          <ixz>-0.035</ixz>
+          <iyy>2.057</iyy>
+          <iyz>0.131</iyz>
+          <izz>2.515</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='bottom_camera'>
+      <pose frame=''>-0.0177 -0.167436 -0.220985 3.14159 -0 1.5708</pose>
+      <inertial>
+        <pose frame=''>0.134891 0.031316 0.073306 0 -0 0</pose>
+        <mass>0.89297</mass>
+        <inertia>
+          <ixx>7.30527e-05</ixx>
+          <ixy>-9.06393e-08</ixy>
+          <ixz>3.40647e-05</ixz>
+          <iyy>0.00028126</iyy>
+          <iyz>-9.58709e-07</iyz>
+          <izz>0.0002153</izz>
+        </inertia>
+      </inertial>
+      <collision name='bottom_camera_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/bottom_camera.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='bottom_camera_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/bottom_camera.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='bottom_camera_joint' type='fixed'>
+      <child>bottom_camera</child>
+      <parent>base_link</parent>
+      <axis>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='east'>
+      <pose frame=''>-0.00295 0.074853 -0.306919 -0 0.007278 -0</pose>
+      <inertial>
+        <pose frame=''>0.068767 0.112115 0.099977 0 -0 0</pose>
+        <mass>0.209037</mass>
+        <inertia>
+          <ixx>3.61864e-05</ixx>
+          <ixy>-6.51003e-06</ixy>
+          <ixz>-9.55728e-08</ixz>
+          <iyy>3.3968e-05</iyy>
+          <iyz>3.67503e-08</iyz>
+          <izz>6.95536e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='east_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/east.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='east_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/east.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='east_joint' type='fixed'>
+      <child>east</child>
+      <parent>base_link</parent>
+      <axis>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='front_camera'>
+      <pose frame=''>-0.285555 0.109208 -0.329224 -1.5708 -0 -1.5708</pose>
+      <inertial>
+        <pose frame=''>0.134891 -0.031316 -0.073306 0 -0 0</pose>
+        <mass>0.89297</mass>
+        <inertia>
+          <ixx>7.30527e-05</ixx>
+          <ixy>9.06393e-08</ixy>
+          <ixz>-3.40647e-05</ixz>
+          <iyy>0.00028126</iyy>
+          <iyz>-9.58709e-07</iyz>
+          <izz>0.0002153</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_camera_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/front_camera.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='front_camera_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/front_camera.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='front_camera_joint' type='fixed'>
+      <child>front_camera</child>
+      <parent>base_link</parent>
+      <axis>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='imu'>
+      <pose frame=''>0.127326 0.084549 -0.212566 0 0 3.14159</pose>
+      <inertial>
+        <pose frame=''>0.097406 0.115788 0.145152 0 -0 0</pose>
+        <mass>0.916442</mass>
+        <inertia>
+          <ixx>0.00019311</ixx>
+          <ixy>-1.742e-09</ixy>
+          <ixz>-2.0043e-05</ixz>
+          <iyy>0.000200383</iyy>
+          <iyz>5.71261e-08</iyz>
+          <izz>7.39184e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='imu_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/imu.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='imu_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/imu.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='imu_joint' type='fixed'>
+      <child>imu</child>
+      <parent>base_link</parent>
+      <axis>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='north_east'>
+      <pose frame=''>-0.297678 -0.031058 -0.426289 0 0 0.785398</pose>
+      <inertial>
+        <pose frame=''>0.246286 -0.244816 0.248545 0 -0 0</pose>
+        <mass>0.209037</mass>
+        <inertia>
+          <ixx>3.61864e-05</ixx>
+          <ixy>-6.51003e-06</ixy>
+          <ixz>-9.55728e-08</ixz>
+          <iyy>3.3968e-05</iyy>
+          <iyz>3.67503e-08</iyz>
+          <izz>6.95536e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='north_east_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/north_east.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='north_east_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/north_east.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='north_east_joint' type='fixed'>
+      <child>north_east</child>
+      <parent>base_link</parent>
+      <axis>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='north'>
+      <pose frame=''>-0.253534 0.031211 -0.089973 3.14159 -0 -1.5708</pose>
+      <inertial>
+        <pose frame=''>0.068767 0.112115 0.099978 0 -0 0</pose>
+        <mass>0.209037</mass>
+        <inertia>
+          <ixx>3.61864e-05</ixx>
+          <ixy>-6.51003e-06</ixy>
+          <ixz>-9.55728e-08</ixz>
+          <iyy>3.3968e-05</iyy>
+          <iyz>3.67503e-08</iyz>
+          <izz>6.95536e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='north_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/north.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='north_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/north.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='north_joint' type='fixed'>
+      <child>north</child>
+      <parent>base_link</parent>
+      <axis>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='north_west'>
+      <pose frame=''>-0.149697 -0.173659 -0.426776 0 -0 2.35619</pose>
+      <inertial>
+        <pose frame=''>-0.039344 -0.242482 0.249032 0 -0 0</pose>
+        <mass>0.209037</mass>
+        <inertia>
+          <ixx>3.61864e-05</ixx>
+          <ixy>-6.51003e-06</ixy>
+          <ixz>-9.55728e-08</ixz>
+          <iyy>3.3968e-05</iyy>
+          <iyz>3.67503e-08</iyz>
+          <izz>6.95536e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='north_west_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/north_west.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='north_west_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/north_west.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='north_west_joint' type='fixed'>
+      <child>north_west</child>
+      <parent>base_link</parent>
+      <axis>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='south_east'>
+      <pose frame=''>0.280834 0.105242 -0.426776 -0 -0 -0.785398</pose>
+      <inertial>
+        <pose frame=''>-0.067876 -0.259162 0.249032 0 -0 0</pose>
+        <mass>0.209037</mass>
+        <inertia>
+          <ixx>3.61864e-05</ixx>
+          <ixy>-6.51003e-06</ixy>
+          <ixz>-9.55728e-08</ixz>
+          <iyy>3.3968e-05</iyy>
+          <iyz>3.67503e-08</iyz>
+          <izz>6.95536e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='south_east_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/south_east.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='south_east_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/south_east.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='south_east_joint' type='fixed'>
+      <child>south_east</child>
+      <parent>base_link</parent>
+      <axis>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='south'>
+      <pose frame=''>0.364311 -0.091678 -0.113872 3.14159 0 1.5708</pose>
+      <inertial>
+        <pose frame=''>0.068767 0.112115 0.099978 0 -0 0</pose>
+        <mass>0.209038</mass>
+        <inertia>
+          <ixx>3.61859e-05</ixx>
+          <ixy>-6.51021e-06</ixy>
+          <ixz>-9.50945e-08</ixz>
+          <iyy>3.39685e-05</iyy>
+          <iyz>3.66055e-08</iyz>
+          <izz>6.95536e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='south_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/south.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='south_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/south.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='south_joint' type='fixed'>
+      <child>south</child>
+      <parent>base_link</parent>
+      <axis>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='south_west'>
+      <pose frame=''>0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
+      <inertial>
+        <pose frame=''>0.262967 -0.259557 0.248545 0 -0 0</pose>
+        <mass>0.209037</mass>
+        <inertia>
+          <ixx>3.61864e-05</ixx>
+          <ixy>-6.51003e-06</ixy>
+          <ixz>-9.55728e-08</ixz>
+          <iyy>3.3968e-05</iyy>
+          <iyz>3.67503e-08</iyz>
+          <izz>6.95536e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='south_west_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/south_west.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='south_west_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/south_west.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='south_west_joint' type='fixed'>
+      <child>south_west</child>
+      <parent>base_link</parent>
+      <axis>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='west'>
+      <pose frame=''>-0.001494 -0.133518 -0.106867 3.14159 0.007278 -0</pose>
+      <inertial>
+        <pose frame=''>0.068767 0.112115 0.099977 0 -0 0</pose>
+        <mass>0.209039</mass>
+        <inertia>
+          <ixx>3.6187e-05</ixx>
+          <ixy>-6.50952e-06</ixy>
+          <ixz>-9.55777e-08</ixz>
+          <iyy>3.39685e-05</iyy>
+          <iyz>3.66436e-08</iyz>
+          <izz>6.95547e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='west_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/west.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='west_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://anahita/meshes/west.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='west_joint' type='fixed'>
+      <child>west</child>
+      <parent>base_link</parent>
+      <axis>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <static>0</static>
+    <plugin name='AUVPlugin' filename='libAUVPlugin.so'>
+      <thrustEfficiency>0.9</thrustEfficiency>
+      <thrustMin>-7</thrustMin>
+      <thrustMax>7</thrustMax>
+      <robotNamespace>AUV</robotNamespace>
+    </plugin>
+  </model>
+</sdf>

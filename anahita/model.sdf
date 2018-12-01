@@ -473,7 +473,7 @@
       <robotNamespace>Anahita</robotNamespace>
     </plugin>
     <plugin name='GazeboRosIMU' filename='libimuPlugin.so'>
-      <topicName>/varun/sensors/imu/data</topicName>
+      <topicName>/mavros/imu/data</topicName>
       <gaussianNoise>0.01</gaussianNoise>
       <updateRate>50</updateRate>
       <robotNamespace>Anahita</robotNamespace>
