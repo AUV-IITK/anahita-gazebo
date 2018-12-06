@@ -23,6 +23,8 @@
 #include <vector>
 #include <map>
 
+#include <anahita_plugins/HydrodynamicModel.hh>
+
 namespace gazebo
 {
     class AUV : public ModelPlugin {
@@ -84,14 +86,14 @@ namespace gazebo
         protected: int thrustMax;
 
         // \brief: to store pwm sent from controller
-        protected: int pwm_north_ = 0;
-        protected: int pwm_south_ = 0;
-        protected: int pwm_east_ = 0;
-        protected: int pwm_west_ = 0;
-        protected: int pwm_north_east_ = 0;
-        protected: int pwm_north_west_ = 0;
-        protected: int pwm_south_west_ = 0;
-        protected: int pwm_south_east_ = 0;
+        protected: double pwm_north_ = 0;
+        protected: double pwm_south_ = 0;
+        protected: double pwm_east_ = 0;
+        protected: double pwm_west_ = 0;
+        protected: double pwm_north_east_ = 0;
+        protected: double pwm_north_west_ = 0;
+        protected: double pwm_south_west_ = 0;
+        protected: double pwm_south_east_ = 0;
 
         /// \brief Thruster topics prefix
         protected: std::string topicPrefix;

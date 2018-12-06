@@ -90,7 +90,6 @@ void AUV::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
     this->rosQueueThread = std::thread(std::bind(&AUV::QueueThread, this));
 
     this->update_connection_ = event::Events::ConnectWorldUpdateBegin(boost::bind(&AUV::Update, this));
-
 }
 
 double AUV::ThrustConversionFnc(int pwm) {
@@ -144,39 +143,51 @@ void AUV::Update() {
     this->north_west_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, pwm_north_west_));
     this->south_east_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, pwm_south_east_));
     this->south_west_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, pwm_south_west_));
-
 }
 
 void AUV::SidewardBackCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_south_ = this->ThrustConversionFnc(_msg->data + 1500);
+    this->pwm_south_ = (static_cast<double>(_msg->data)/400)*5;
+    if (this->pwm_south_ == 0) {
+        ignition::math::Vector3d vel = ignition::math::Vector3d(0, 0, 0);
+        this->model_->SetAngularVel(vel);
+        // cout << "Kill Signal" << endl;
+    }
+    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::SidewardFrontCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_north_ = this->ThrustConversionFnc(_msg->data + 1500);
+    this->pwm_north_ = (static_cast<double>(_msg->data)/400)*5;
+    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::ForwardLeftCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_west_ = this->ThrustConversionFnc(_msg->data + 1500);
+    this->pwm_west_ = (static_cast<double>(_msg->data)/400)*5;
+    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::ForwardRightCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_east_ = this->ThrustConversionFnc(_msg->data + 1500);
+    this->pwm_east_ = (static_cast<double>(_msg->data)/400)*5;
+    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::UpwardNorthEastCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_north_east_ = this->ThrustConversionFnc(_msg->data + 1500);
+    this->pwm_north_east_ = (static_cast<double>(_msg->data)/400)*5;
+    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::UpwardNorthWestCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_north_west_ = this->ThrustConversionFnc(_msg->data + 1500);
+    this->pwm_north_west_ = (static_cast<double>(_msg->data)/400)*5;
+    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::UpwardSouthEastCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_south_east_ = this->ThrustConversionFnc(_msg->data + 1500);
+    this->pwm_south_east_ = (static_cast<double>(_msg->data)/400)*5;
+    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::UpwardSouthWestCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_south_west_ = this->ThrustConversionFnc(_msg->data + 1500);
+    this->pwm_south_west_ = (static_cast<double>(_msg->data)/400)*5;
+    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 GZ_REGISTER_MODEL_PLUGIN(AUV)

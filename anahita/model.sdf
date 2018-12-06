@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sdf version="1.6">
    <model name="anahita">
-      <pose frame="">0 0 3 0 0 0</pose>
+      <pose frame="">0 0 -1.5 0 0 0</pose>
       <link name="base_link">
          <pose frame="">0 0 0 0 0 0</pose>
          <gravity>1</gravity>
@@ -157,116 +157,115 @@
          </axis>
       </joint>
       <link name="south_west">
-         <gravity>1</gravity>
-         <!-- <inertial>
-        <pose frame=''>0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
-        <mass>0.20903660674654</mass>
-        <inertia>
-          <ixx>3.6186371961113E-05</ixx>
-          <ixy>-6.50989826823458E-06</ixy>
-          <ixz>-9.51038686020477E-08</ixz>
-          <iyy>3.39684105605489E-05</iyy>
-          <iyz>3.6553730336142E-08</iyz>
-          <izz>6.95541825589081E-05</izz>
-        </inertia>
-      </inertial> -->
-         <collision name="base_link_fixed_joint_lump__south_west_collision_10">
-            <pose frame="">0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
-            <geometry>
-               <mesh>
-                  <scale>1 1 1</scale>
-                  <uri>model://anahita/meshes/south_west.STL</uri>
-               </mesh>
-            </geometry>
-         </collision>
-         <visual name="base_link_fixed_joint_lump__south_west_visual_10">
-            <pose frame="">0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
-            <geometry>
-               <mesh>
-                  <scale>1 1 1</scale>
-                  <uri>model://anahita/meshes/south_west.STL</uri>
-               </mesh>
-            </geometry>
-         </visual>
+          <gravity>1</gravity>
+          <!-- <inertial>
+          <pose frame=''>0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
+          <mass>0.20903660674654</mass>
+          <inertia>
+            <ixx>3.6186371961113E-05</ixx>
+            <ixy>-6.50989826823458E-06</ixy>
+            <ixz>-9.51038686020477E-08</ixz>
+            <iyy>3.39684105605489E-05</iyy>
+            <iyz>3.6553730336142E-08</iyz>
+            <izz>6.95541825589081E-05</izz>
+          </inertia>
+          </inertial> -->
+          <collision name="base_link_fixed_joint_lump__south_west_collision_10">
+              <pose frame="">0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
+              <geometry>
+                <mesh>
+                    <scale>1 1 1</scale>
+                    <uri>model://anahita/meshes/south_west.STL</uri>
+                </mesh>
+              </geometry>
+          </collision>
+          <visual name="base_link_fixed_joint_lump__south_west_visual_10">
+              <pose frame="">0.419063 -0.027607 -0.426289 0 -0 -2.35619</pose>
+              <geometry>
+                <mesh>
+                    <scale>1 1 1</scale>
+                    <uri>model://anahita/meshes/south_west.STL</uri>
+                </mesh>
+              </geometry>
+          </visual>
       </link>
       <joint name="south_west_joint" type="fixed">
-         <parent>base_link</parent>
-         <child>south_west</child>
-         <axis>
-            <xyz>0 0 0</xyz>
-         </axis>
+        <parent>base_link</parent>
+        <child>south_west</child>
+        <axis>
+          <xyz>0 0 0</xyz>
+        </axis>
       </joint>
       <link name="bottom_camera">
          <gravity>1</gravity>
          <sensor type="camera" name="bottom_camera">
-            <update_rate>30.0</update_rate>
-            <camera name="bottom_camera">
-               <pose>+0.28034 0.105242 -0.329224 0 0 0</pose>
-               <horizontal_fov>1.3962634</horizontal_fov>
-               <image>
-                  <width>800</width>
-                  <height>800</height>
-                  <format>R8G8B8</format>
-               </image>
-               <clip>
-                  <near>0.02</near>
-                  <far>300</far>
-               </clip>
-               <noise>
-                  <type>gaussian</type>
-                  <!-- Noise is sampled independently per pixel on each frame.
+         <update_rate>30.0</update_rate>
+         <camera name="bottom_camera">
+            <pose>+0.28034 0.105242 -0.329224 0 0 0</pose>
+            <horizontal_fov>1.3962634</horizontal_fov>
+            <image>
+               <width>800</width>
+               <height>800</height>
+               <format>R8G8B8</format>
+            </image>
+            <clip>
+               <near>0.02</near>
+               <far>300</far>
+            </clip>
+            <noise>
+               <type>gaussian</type>
+               <!-- Noise is sampled independently per pixel on each frame.
                That pixel's noise value is added to each of its color
                channels, which at that point lie in the range [0,1]. -->
-                  <mean>0.0</mean>
-                  <stddev>0.007</stddev>
-               </noise>
-               v
-            </camera>
-            <plugin name="GazeboROSCamera" filename="libgazebo_ros_camera.so">
-               <alwaysOn>true</alwaysOn>
-               <updateRate>0.0</updateRate>
-               <cameraName>varun/bottom_camera</cameraName>
-               <imageTopicName>image_raw</imageTopicName>
-               <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-               <frameName>camera_link</frameName>
-               <hackBaseline>0.07</hackBaseline>
-               <distortionK1>0.0</distortionK1>
-               <distortionK2>0.0</distortionK2>
-               <distortionK3>0.0</distortionK3>
-               <distortionT1>0.0</distortionT1>
-               <distortionT2>0.0</distortionT2>
-            </plugin>
-         </sensor>
-         <!-- <inertial>
-        <pose frame=''>-0.0177 -0.167436 -0.220985 3.14159 -0 1.5708</pose>
-        <mass>0.892969587106331</mass>
-        <inertia>
-          <ixx>7.30526934770799E-05</ixx>
-          <ixy>-9.06392697520444E-08</ixy>
-          <ixz>3.40647477246247E-05</ixz>
-          <iyy>0.00028126049412029</iyy>
-          <iyz>-9.58708954452536E-07</iyz>
-          <izz>0.000215299979173229</izz>
-        </inertia>
-      </inertial> -->
-         <collision name="base_link_fixed_joint_lump__bottom_camera_collision_1">
-            <pose frame="">-0.0177 -0.167436 -0.220985 3.14159 -0 1.5708</pose>
-            <geometry>
-               <mesh>
-                  <scale>1 1 1</scale>
-                  <uri>model://anahita/meshes/bottom_camera.STL</uri>
-               </mesh>
-            </geometry>
-         </collision>
-         <visual name="base_link_fixed_joint_lump__bottom_camera_visual_1">
-            <pose frame="">-0.0177 -0.167436 -0.220985 3.14159 -0 1.5708</pose>
-            <geometry>
-               <mesh>
-                  <scale>1 1 1</scale>
-                  <uri>model://anahita/meshes/bottom_camera.STL</uri>
-               </mesh>
-            </geometry>
-         </visual>
+               <mean>0.0</mean>
+               <stddev>0.007</stddev>
+            </noise>
+         </camera>
+          <!-- <plugin name="AnahitaCameraPlugin" filename="libcameraPlugin.so">
+              <alwaysOn>true</alwaysOn>
+              <updateRate>0.0</updateRate>
+              <cameraName>varun/bottom_camera</cameraName>
+              <imageTopicName>image_raw</imageTopicName>
+              <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+              <frameName>camera_link</frameName>
+              <hackBaseline>0.07</hackBaseline>
+              <distortionK1>0.0</distortionK1>
+              <distortionK2>0.0</distortionK2>
+              <distortionK3>0.0</distortionK3>
+              <distortionT1>0.0</distortionT1>
+              <distortionT2>0.0</distortionT2>
+          </plugin> -->
+        </sensor>
+        <!-- <inertial>
+          <pose frame=''>-0.0177 -0.167436 -0.220985 3.14159 -0 1.5708</pose>
+          <mass>0.892969587106331</mass>
+          <inertia>
+            <ixx>7.30526934770799E-05</ixx>
+            <ixy>-9.06392697520444E-08</ixy>
+            <ixz>3.40647477246247E-05</ixz>
+            <iyy>0.00028126049412029</iyy>
+            <iyz>-9.58708954452536E-07</iyz>
+            <izz>0.000215299979173229</izz>
+          </inertia>
+        </inertial> -->
+        <collision name="base_link_fixed_joint_lump__bottom_camera_collision_1">
+          <pose frame="">-0.0177 -0.167436 -0.220985 3.14159 -0 1.5708</pose>
+          <geometry>
+              <mesh>
+                <scale>1 1 1</scale>
+                <uri>model://anahita/meshes/bottom_camera.STL</uri>
+              </mesh>
+          </geometry>
+        </collision>
+        <visual name="base_link_fixed_joint_lump__bottom_camera_visual_1">
+          <pose frame="">-0.0177 -0.167436 -0.220985 3.14159 -0 1.5708</pose>
+          <geometry>
+              <mesh>
+                <scale>1 1 1</scale>
+                <uri>model://anahita/meshes/bottom_camera.STL</uri>
+              </mesh>
+          </geometry>
+        </visual>
       </link>
       <joint name="bottom_camera_joint" type="fixed">
          <parent>base_link</parent>
@@ -381,7 +380,7 @@
                </noise>
                v
             </camera>
-            <plugin name="GazeboROSCamera" filename="libgazebo_ros_camera.so">
+            <!-- <plugin name="AnahitaCameraPlugin" filename="libcameraPlugin.so">
                <alwaysOn>true</alwaysOn>
                <updateRate>0.0</updateRate>
                <cameraName>varun/front_camera</cameraName>
@@ -394,7 +393,7 @@
                <distortionK3>0.0</distortionK3>
                <distortionT1>0.0</distortionT1>
                <distortionT2>0.0</distortionT2>
-            </plugin>
+            </plugin> -->
          </sensor>
          <!-- <inertial>
         <pose frame=''>-0.285555 0.109208 -0.329224 -1.5708 -0 -1.5708</pose>
@@ -560,13 +559,58 @@
          <thrustMin>-7</thrustMin>
          <thrustMax>7</thrustMax>
          <robotNamespace>Anahita</robotNamespace>
+         <!-- This flag will make the link neutrally buoyant -->
+         <!-- <neutrally_buoyant>0</neutrally_buoyant> -->
+
+         <!-- Link's volume -->
+         <!-- <volume>1.83826</volume> -->
+
+         <!-- Link's bounding box, it is used to recalculate the immersed
+         volume when close to the surface.
+         This is a workaround the invalid bounding box given by Gazebo-->
+         <!-- <box>
+            <width>40</width>
+            <length>75</length>
+            <height>30</height>
+         </box> -->
+
+         <!-- Center of buoyancy -->
+         <!-- <center_of_buoyancy>0 0 0.05</center_of_buoyancy> -->
+
+         <!-- 1) Fossen's equation of motion -->
+         <!-- <hydrodynamic_model>
+            <type>fossen</type>
+            <added_mass>
+               779.79 -6.8773 -103.32  8.5426 -165.54 -7.8033
+               -6.8773    1222   51.29  409.44 -5.8488  62.726
+               -103.32   51.29  3659.9  6.1112 -386.42  10.774
+               8.5426  409.44  6.1112   534.9 -10.027  21.019
+               -165.54 -5.8488 -386.42 -10.027  842.69 -1.1162
+               -7.8033  62.726  10.775  21.019 -1.1162  224.32
+            </added_mass> -->
+            <!--
+            The linear damping coefficients can be provided as a diagonal (6 elements)
+            or a full matrix (36 coefficients), like the added-mass coefficients above
+            -->
+            <!-- <linear_damping>
+               -74.82 -69.48 -728.4 -268.8 -309.77 -105
+            </linear_damping> -->
+            <!--
+            The quadratic damping coefficients can be provided as a diagonal (6 elements)
+            or a full matrix (36 coefficients), like the added-mass coefficients above
+            -->
+            <!-- <quadratic_damping>
+               -748.22 -992.53 -1821.01 -672 -774.44 -523.27
+            </quadratic_damping>
+         </hydrodynamic_model> -->
       </plugin>
       <plugin name="GazeboRosIMU" filename="libimuPlugin.so">
-         <topicName>/varun/sensors/imu/data</topicName>
+         <topicName>/mavros/imu/data</topicName>
          <gaussianNoise>0.01</gaussianNoise>
          <updateRate>50</updateRate>
          <robotNamespace>Anahita</robotNamespace>
          <bodyName>imu</bodyName>
       </plugin>
+      <plugin name="KillPlugin" filename="libKillPlugin.so"/>
    </model>
 </sdf>
