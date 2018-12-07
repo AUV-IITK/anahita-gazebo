@@ -143,14 +143,8 @@ target_link_libraries(imuPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIB
 add_library(cameraPlugin SHARED src/cameraPlugin.cc include/anahita_plugins/cameraPlugin.hh)
 target_link_libraries(cameraPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES})
 
-add_library(BuoyancyObject SHARED src/BuoyancyObject.cc include/anahita_plugins/BuoyancyObject.hh)
-target_link_libraries(BuoyancyObject ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES})
-
-add_library(HydrodynamicModel SHARED src/HydrodynamicModel.cc include/anahita_plugins/HydrodynamicModel.hh)
-target_link_libraries(HydrodynamicModel ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES} BuoyancyObject)
-
 add_library(AUVPlugin SHARED src/AUVPlugin.cc include/anahita_plugins/AUVPlugin.hh)
-target_link_libraries(AUVPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES} HydrodynamicModel)
+target_link_libraries(AUVPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES})
 
 add_library(KillPlugin SHARED src/kill_plugin.cc include/anahita_plugins/kill_plugin.hh)
 target_link_libraries(KillPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES})
