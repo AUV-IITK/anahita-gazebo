@@ -23,8 +23,6 @@
 #include <vector>
 #include <map>
 
-#include <anahita_plugins/HydrodynamicModel.hh>
-
 namespace gazebo
 {
     class AUV : public ModelPlugin {

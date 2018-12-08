@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sdf version="1.6">
    <model name="anahita">
-      <pose frame="">0 0 -1.5 0 0 3.14285</pose>
+      <pose frame="">0 0 -0.7 0 0 3.14285</pose>
       <link name="base_link">
          <pose frame="">0 0 0 0 0 0</pose>
          <gravity>1</gravity>
@@ -187,7 +187,7 @@
                     <uri>model://anahita/meshes/south_west.STL</uri>
                 </mesh>
               </geometry>
-          </visual>
+          </visual>m
       </link>
       <joint name="south_west_joint" type="fixed">
         <parent>base_link</parent>
@@ -201,7 +201,7 @@
          <sensor type="camera" name="bottom_camera">
          <update_rate>30.0</update_rate>
          <camera name="bottom_camera">
-            <pose>0.28034 0.105242 -0.329224 0 1.7142 0</pose>
+            <pose>0.28034 0.105242 -0.329224 0 1.7142 3.142875</pose>
             <horizontal_fov>1.3962634</horizontal_fov>
             <image>
                <width>800</width>

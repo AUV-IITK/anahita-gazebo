@@ -70,41 +70,41 @@ void KillPlugin::QueueThread()
 }
 
 void KillPlugin::AngularVelCB(const std_msgs::Bool::ConstPtr& msg) {    
-    if (msg->data && curr_time_ - ang_vel_relax_time_ >= 1) {
+    if (msg->data) {
         ignition::math::Vector3d vel = this->model_->RelativeAngularVel();
         vel = ignition::math::Vector3d(vel.X(), vel.Y(), 0);
         this->model_->SetAngularVel(vel);
-        cout << "Angular velocity set to 0" << endl;
+        // cout << "Angular velocity set to 0" << endl;
         ang_vel_relax_time_ = this->world_->SimTime().Double();
     }
 }
 
 void KillPlugin::LinearVelXCB(const std_msgs::Bool::ConstPtr& msg) {
-    if (msg->data && curr_time_ - lin_velx_relax_time_ >= 1) {
+    if (msg->data) {
         ignition::math::Vector3d vel = this->model_->RelativeLinearVel();
         vel = ignition::math::Vector3d(0, vel.Y(), vel.Z());
         this->model_->SetLinearVel(vel);
-        cout << "Linear velocity x set to 0" << endl;
+        // cout << "Linear velocity x set to 0" << endl;
         lin_velx_relax_time_ = this->world_->SimTime().Double();
     }
 }
 
 void KillPlugin::LinearVelYCB(const std_msgs::Bool::ConstPtr& msg) {
-    if (msg->data && curr_time_ - lin_vely_relax_time_ >= 1) {
+    if (msg->data) {
         ignition::math::Vector3d vel = this->model_->RelativeLinearVel();
         vel = ignition::math::Vector3d(vel.X(), 0, vel.Z());
         this->model_->SetLinearVel(vel);
-        cout << "Linear velocity y set to 0" << endl;
+        // cout << "Linear velocity y set to 0" << endl;
         lin_vely_relax_time_ = this->world_->SimTime().Double();
     }
 }
 
 void KillPlugin::LinearVelZCB(const std_msgs::Bool::ConstPtr& msg) {
-    if (msg->data && curr_time_ - lin_velz_relax_time_ >= 1) {
+    if (msg->data) {
         ignition::math::Vector3d vel = this->model_->RelativeLinearVel();
         vel = ignition::math::Vector3d(vel.X(), vel.Y(), 0);
         this->model_->SetLinearVel(vel);
-        cout << "Linear velocity z set to 0" << endl;
+        // cout << "Linear velocity z set to 0" << endl;
         lin_velz_relax_time_ = this->world_->SimTime().Double();
     }
 }

@@ -1,0 +1,50 @@
+<robot
+  name="niot_bins">
+  <link
+    name="niot_bins">
+    <inertial>
+      <origin
+        xyz="0.45 -0.065259 -0.3"
+        rpy="0 0 0" />
+      <mass
+        value="8.1448" />
+      <inertia
+        ixx="0.246589572294779"
+        ixy="-2.18936647929116E-18"
+        ixz="9.60360534586064E-17"
+        iyy="0.718621918002225"
+        iyz="-2.7757310026677E-17"
+        izz="0.539649518422871" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://niot_bins/meshes/marker dropper bin.STL" />
+      </geometry>
+      <material
+        name="niot_material">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://niot_bins/meshes/marker dropper bin.STL" />
+      </geometry>
+    </collision>
+  </link>
+    <gazebo reference="niot_material">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo>
+    <static>true</static>
+  </gazebo>
+
+</robot>

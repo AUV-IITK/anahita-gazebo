@@ -1,0 +1,49 @@
+<robot
+  name="niot_path">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.62423 0.5129 0.12828"
+        rpy="0 0 0" />
+      <mass
+        value="2.5722" />
+      <inertia
+        ixx="0.092857"
+        ixy="1.3878E-17"
+        ixz="-5.4794E-18"
+        iyy="0.18998"
+        iyz="-3.0109E-18"
+        izz="0.28283" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://niot_path/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://niot_path/meshes/base_link.STL" />        
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="base_link">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+  <gazebo>
+  <static>true</static>
+</gazebo>
+</robot>

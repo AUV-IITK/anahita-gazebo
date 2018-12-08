@@ -1,0 +1,49 @@
+<robot
+  name="niot_gate">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.59925 1.9935 3.0866"
+        rpy="0 0 0" />
+      <mass
+        value="7.0204" />
+      <inertia
+        ixx="0.63174"
+        ixy="-7.3439E-08"
+        ixz="-3.642E-08"
+        iyy="0.29249"
+        iyz="-0.14908"
+        izz="0.33925" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://niot_gate/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://niot_gate/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="base_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo>
+    <static>true</static>
+  </gazebo>
+</robot>

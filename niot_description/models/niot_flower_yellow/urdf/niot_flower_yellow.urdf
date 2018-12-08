@@ -1,0 +1,49 @@
+<robot
+  name="niot_flower_yellow">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.018017 2.485 0.1911"
+        rpy="0 0 0" />
+      <mass
+        value="7.3927" />
+      <inertia
+        ixx="2.4511"
+        ixy="-2.3456E-18"
+        ixz="-3.823E-34"
+        iyy="9.4672E-33"
+        iyz="-2.9962E-17"
+        izz="2.4511" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://niot_flower_yellow/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="niot_flower_yellow/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="base_link">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <gazebo>
+    <static>true</static>
+  </gazebo>
+</robot>
