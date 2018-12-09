@@ -49,8 +49,8 @@ namespace gazebo
         // SDF root element
         private: sdf::ElementPtr sdf_;
 
-        // world name
-        private: std::string world_name_;
+        // total mass
+        private: double mass_ = 0;
 
         // Pointer to the north thruster link
         protected: gazebo::physics::LinkPtr north_link_;

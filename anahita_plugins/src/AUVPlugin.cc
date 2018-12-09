@@ -24,6 +24,12 @@ void AUV::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
     this->south_east_link_ = _model->GetLink("anahita::south_east");
     this->south_west_link_ = _model->GetLink("anahita::south_west");
 
+    std::vector<gazebo::physics::LinkPtr> links_ = this->model_->GetLinks();
+
+    for (int i = 0; i < links_.size(); i++) {
+        mass_ = mass_ + links_[i]->GetInertial()->Mass();
+    }
+
     cout << "Model Name: " << _model->GetName() << endl;
     
     // Initialize ros, if it has not already bee initialized.
@@ -115,25 +121,22 @@ void AUV::QueueThread()
 
 void AUV::Update() {
     
-    ignition::math::Vector3d buoyancyForce;
-    buoyancyForce = ignition::math::Vector3d(0, 0, 0);
+    static ignition::math::Vector3d buoyancyForce = ignition::math::Vector3d(0, 0, 0);
 
-    double mass = 0;
+    static double g = 9.8;
 
-    std::vector<gazebo::physics::LinkPtr> links_ = this->model_->GetLinks();
+    static ignition::math::Vector3d CoB = ignition::math::Vector3d(0, 0, 0.05);
+    static ignition::math::Pose3d pos = ignition::math::Pose3d(0, 0, 0, 0, 0, 0);
+    static double height = -1.5;
 
-    double g = 9.8;
+    pos = model_->WorldPose();
+    height = pos.Pos().Z();
 
-    ignition::math::Vector3d CoB = ignition::math::Vector3d(0, 0, 0.05);
+    buoyancyForce = ignition::math::Vector3d(0, 0, mass_*g);
 
-    ignition::math::Vector3d f1(1, 0, 0);
-
-    for (int i = 0; i < links_.size(); i++) {
-        mass = mass + links_[i]->GetInertial()->Mass();
+    if (height <= 0) {
+        this->baseLink->AddForceAtRelativePosition(buoyancyForce, CoB);
     }
-
-    buoyancyForce = ignition::math::Vector3d(0, 0, mass*g);
-    this->baseLink->AddForceAtRelativePosition(buoyancyForce, CoB);
 
     this->north_link_->AddRelativeForce(ignition::math::Vector3d(0, pwm_north_, 0)); 
     this->south_link_->AddRelativeForce(ignition::math::Vector3d(0, pwm_south_, 0));
