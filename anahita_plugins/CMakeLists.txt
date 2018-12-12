@@ -140,9 +140,6 @@ link_directories(
 add_library(imuPlugin SHARED src/imuPlugin.cc include/anahita_plugins/imuPlugin.hh)
 target_link_libraries(imuPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES})
 
-add_library(cameraPlugin SHARED src/cameraPlugin.cc include/anahita_plugins/cameraPlugin.hh)
-target_link_libraries(cameraPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES})
-
 add_library(AUVPlugin SHARED src/AUVPlugin.cc include/anahita_plugins/AUVPlugin.hh)
 target_link_libraries(AUVPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES})
 

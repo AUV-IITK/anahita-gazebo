@@ -150,42 +150,34 @@ void AUV::Update() {
 
 void AUV::SidewardBackCB(const std_msgs::Int32::ConstPtr& _msg) {
     this->pwm_south_ = (static_cast<double>(_msg->data)/400)*3;
-    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::SidewardFrontCB(const std_msgs::Int32::ConstPtr& _msg) {
     this->pwm_north_ = (static_cast<double>(_msg->data)/400)*3;
-    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::ForwardLeftCB(const std_msgs::Int32::ConstPtr& _msg) {
     this->pwm_west_ = (static_cast<double>(_msg->data)/400)*1;
-    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::ForwardRightCB(const std_msgs::Int32::ConstPtr& _msg) {
     this->pwm_east_ = (static_cast<double>(_msg->data)/400)*1;
-    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::UpwardNorthEastCB(const std_msgs::Int32::ConstPtr& _msg) {
     this->pwm_north_east_ = (static_cast<double>(_msg->data)/400)*1;
-    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::UpwardNorthWestCB(const std_msgs::Int32::ConstPtr& _msg) {
     this->pwm_north_west_ = (static_cast<double>(_msg->data)/400)*1;
-    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::UpwardSouthEastCB(const std_msgs::Int32::ConstPtr& _msg) {
     this->pwm_south_east_ = (static_cast<double>(_msg->data)/400)*1;
-    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 void AUV::UpwardSouthWestCB(const std_msgs::Int32::ConstPtr& _msg) {
     this->pwm_south_west_ = (static_cast<double>(_msg->data)/400)*1;
-    // this->ThrustConversionFnc(_msg->data + 1500);
 }
 
 GZ_REGISTER_MODEL_PLUGIN(AUV)
