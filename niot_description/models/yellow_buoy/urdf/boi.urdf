@@ -1,0 +1,46 @@
+<robot
+  name="yellow_buoy">
+  <link
+    name="yellow_buoy">
+    <inertial>
+      <origin
+        xyz="0.1143 -2.25510000000394E-21 -6.43E-17"
+        rpy="0 0 0" />
+      <mass
+        value="6.1833" />
+      <inertia
+        ixx="0.0323746474542513"
+        ixy="-6.15621576657226E-38"
+        ixz="-2.73006969216511E-34"
+        iyy="0.0323746199184535"
+        iyz="8.02012830851934E-20"
+        izz="0.0326837801052245" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://yellow_buoy/meshes/boi.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://yellow_buoy/meshes/boi.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="yellow_buoy">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+</robot>

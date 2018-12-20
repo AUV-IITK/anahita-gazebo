@@ -1,20 +1,20 @@
 <robot
-  name="base rod">
+  name="green_buoy">
   <link
-    name="base rod">
+    name="green_buoy">
     <inertial>
       <origin
-        xyz="1.0353E-35 1.47424294227797E-17 0.25"
+        xyz="0.1143 -2.25510000000394E-21 -6.43E-17"
         rpy="0 0 0" />
       <mass
-        value="0.20892" />
+        value="6.1833" />
       <inertia
-        ixx="0.0052910602678995"
-        ixy="-9.29261839626953E-39"
-        ixz="2.26221665953019E-36"
-        iyy="0.0052910602678995"
-        iyz="-3.08179098282049E-19"
-        izz="1.2441492306379E-05" />
+        ixx="0.0323746474542513"
+        ixy="-6.15621576657226E-38"
+        ixz="-2.73006969216511E-34"
+        iyy="0.0323746199184535"
+        iyz="8.02012830851934E-20"
+        izz="0.0326837801052245" />
     </inertial>
     <visual>
       <origin
@@ -22,7 +22,7 @@
         rpy="1.5707963267949 0 0" />
       <geometry>
         <mesh
-          filename="package://base rod/meshes/base rod.STL" />
+          filename="package://green_buoy/meshes/boi.STL" />
       </geometry>
       <material
         name="">
@@ -36,8 +36,11 @@
         rpy="1.5707963267949 0 0" />
       <geometry>
         <mesh
-          filename="package://base rod/meshes/base rod.STL" />
+          filename="package://green_buoy/meshes/boi.STL" />
       </geometry>
     </collision>
   </link>
+  <gazebo reference="green_buoy">
+    <material>Gazebo/Green</material>
+  </gazebo>
 </robot>
