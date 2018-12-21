@@ -10,6 +10,7 @@ project(anahita_plugins)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
+  hyperion_msgs
 )
 find_package(gazebo REQUIRED)
 
@@ -20,7 +21,7 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 find_package(Boost REQUIRED COMPONENTS system)
 
 include (FindPkgConfig)
-
+ 
 if (PKG_CONFIG_FOUND)
     pkg_check_modules(GAZEBO gazebo)
     pkg_check_modules(SDF sdformat)
@@ -77,10 +78,10 @@ endif()
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs hyperion_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -114,7 +115,7 @@ endif()
 catkin_package(
   INCLUDE_DIRS include  
   LIBRARIES thruster_plugin
-  CATKIN_DEPENDS roscpp std_msgs
+  CATKIN_DEPENDS roscpp std_msgs hyperion_msgs
   # DEPENDS system_lib
 )
 

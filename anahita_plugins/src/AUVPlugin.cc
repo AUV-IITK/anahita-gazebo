@@ -44,54 +44,12 @@ void AUV::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
     this->nh_.reset(new ros::NodeHandle("anahita"));
 
     // Create a named topic, and subscribe to it.
-    ros::SubscribeOptions so1 = ros::SubscribeOptions::create<std_msgs::Int32>(
-        "/pwm/forwardLeft", 1,
-        boost::bind(&AUV::ForwardLeftCB, this, _1),
+    ros::SubscribeOptions so = ros::SubscribeOptions::create<hyperion_msgs::Thrust>(
+        "/pwm", 1,
+        boost::bind(&AUV::thrustCB, this, _1),
         ros::VoidPtr(), &this->rosQueue);
 
-    ros::SubscribeOptions so2 = ros::SubscribeOptions::create<std_msgs::Int32>(
-        "/pwm/forwardRight", 1,
-        boost::bind(&AUV::ForwardRightCB, this, _1),
-        ros::VoidPtr(), &this->rosQueue);
-
-    ros::SubscribeOptions so3 = ros::SubscribeOptions::create<std_msgs::Int32>(
-        "/pwm/sidewardFront", 1,
-        boost::bind(&AUV::SidewardFrontCB, this, _1),
-        ros::VoidPtr(), &this->rosQueue);
-
-    ros::SubscribeOptions so4 = ros::SubscribeOptions::create<std_msgs::Int32>(
-        "/pwm/sidewardBack", 1,
-        boost::bind(&AUV::SidewardBackCB, this, _1),
-        ros::VoidPtr(), &this->rosQueue);
-
-    ros::SubscribeOptions so5 = ros::SubscribeOptions::create<std_msgs::Int32>(
-        "/pwm/upwardBack", 1,
-        boost::bind(&AUV::UpwardSouthEastCB, this, _1),
-        ros::VoidPtr(), &this->rosQueue);
-
-    ros::SubscribeOptions so6 = ros::SubscribeOptions::create<std_msgs::Int32>(
-        "/pwm/upwardBack", 1,
-        boost::bind(&AUV::UpwardSouthWestCB, this, _1),
-        ros::VoidPtr(), &this->rosQueue);
-
-    ros::SubscribeOptions so7 = ros::SubscribeOptions::create<std_msgs::Int32>(
-        "/pwm/upwardFront", 1,
-        boost::bind(&AUV::UpwardNorthEastCB, this, _1),
-        ros::VoidPtr(), &this->rosQueue);
-
-    ros::SubscribeOptions so8 = ros::SubscribeOptions::create<std_msgs::Int32>(
-        "/pwm/upwardFront", 1,
-        boost::bind(&AUV::UpwardNorthWestCB, this, _1),
-        ros::VoidPtr(), &this->rosQueue);
-
-    this->west_sub_ = this->nh_->subscribe(so1);
-    this->east_sub_ = this->nh_->subscribe(so2);
-    this->north_sub_ = this->nh_->subscribe(so3);
-    this->south_sub_ = this->nh_->subscribe(so4);
-    this->south_east_sub_ = this->nh_->subscribe(so5);
-    this->south_west_sub_ = this->nh_->subscribe(so6);
-    this->north_east_sub_ = this->nh_->subscribe(so7);
-    this->north_west_sub_ = this->nh_->subscribe(so8);
+    this->sub_ = this->nh_->subscribe(so);
 
     this->rosQueueThread = std::thread(std::bind(&AUV::QueueThread, this));
 
@@ -148,37 +106,19 @@ void AUV::Update() {
     this->south_west_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, pwm_south_west_));
 }
 
-void AUV::SidewardBackCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_south_ = (static_cast<double>(_msg->data)/400)*3;
-}
-
-void AUV::SidewardFrontCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_north_ = (static_cast<double>(_msg->data)/400)*3;
-}
-
-void AUV::ForwardLeftCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_west_ = (static_cast<double>(_msg->data)/400)*1;
-}
-
-void AUV::ForwardRightCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_east_ = (static_cast<double>(_msg->data)/400)*1;
-}
-
-void AUV::UpwardNorthEastCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_north_east_ = (static_cast<double>(_msg->data)/400)*1;
-}
-
-void AUV::UpwardNorthWestCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_north_west_ = (static_cast<double>(_msg->data)/400)*1;
-}
-
-void AUV::UpwardSouthEastCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_south_east_ = (static_cast<double>(_msg->data)/400)*1;
-}
-
-void AUV::UpwardSouthWestCB(const std_msgs::Int32::ConstPtr& _msg) {
-    this->pwm_south_west_ = (static_cast<double>(_msg->data)/400)*1;
-}
+void AUV::thrustCB (const hyperion_msgs::ThrustConstPtr& pwm) {
+    pwm_west_ = pwm->forward_left;
+    pwm_east_ = pwm->forward_right;
+    
+    pwm_south_ = pwm->sideward_back;
+    pwm_north_ = pwm->sideward_front;
+    
+    pwm_north_east_ = pwm->upward_north_east;
+    pwm_north_west_ = pwm->upward_north_west;
+    
+    pwm_south_east_ = pwm->upward_south_east;
+    pwm_south_west_ = pwm->upward_south_west;
+} 
 
 GZ_REGISTER_MODEL_PLUGIN(AUV)
 

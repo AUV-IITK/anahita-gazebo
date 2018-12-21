@@ -17,6 +17,7 @@
 #include <eigen3/Eigen/Core>
 #include <eigen3/Eigen/Geometry>
 #include <std_msgs/Int32.h>
+#include <hyperion_msgs/Thrust.h>
 
 #include <iostream>
 #include <string>
@@ -34,14 +35,7 @@ namespace gazebo
         public: void QueueThread();
         public: double ThrustConversionFnc(int pwm);
 
-        public: void SidewardBackCB (const std_msgs::Int32::ConstPtr&);
-        public: void SidewardFrontCB (const std_msgs::Int32::ConstPtr&);
-        public: void ForwardLeftCB (const std_msgs::Int32::ConstPtr&);
-        public: void ForwardRightCB (const std_msgs::Int32::ConstPtr&);
-        public: void UpwardNorthEastCB (const std_msgs::Int32::ConstPtr&);
-        public: void UpwardNorthWestCB (const std_msgs::Int32::ConstPtr&);
-        public: void UpwardSouthEastCB (const std_msgs::Int32::ConstPtr&);
-        public: void UpwardSouthWestCB (const std_msgs::Int32::ConstPtr&);
+        public: void thrustCB (const hyperion_msgs::ThrustConstPtr&);
 
         // Pointer to the model
         private: physics::ModelPtr model_;
@@ -52,12 +46,9 @@ namespace gazebo
         // total mass
         private: double mass_ = 0;
 
-        // Pointer to the north thruster link
+        // Pointer to links
         protected: gazebo::physics::LinkPtr north_link_;
-
-        // Pointer to the south thruster link
         protected: gazebo::physics::LinkPtr south_link_;
-
         protected: gazebo::physics::LinkPtr east_link_;
         protected: gazebo::physics::LinkPtr west_link_;
         protected: gazebo::physics::LinkPtr south_west_link_;
@@ -67,21 +58,6 @@ namespace gazebo
 
         // Pointer to the base link
         protected: gazebo::physics::LinkPtr baseLink;
-
-        // Thruster ID, used to generated topic names automatically
-        protected: int thrusterID;
-
-        // Thruster efficiency
-        protected: int thrustEfficiency;
-
-        // Thrust force generated from the thruster
-        protected: int thrustForce;
-
-        /// \brief: Optional: Minimum thrust force output
-        protected: int thrustMin;
-
-        /// \brief: Optional: Maximum thrust force output
-        protected: int thrustMax;
 
         // \brief: to store pwm sent from controller
         protected: double pwm_north_ = 0;
@@ -93,26 +69,13 @@ namespace gazebo
         protected: double pwm_south_west_ = 0;
         protected: double pwm_south_east_ = 0;
 
-        /// \brief Thruster topics prefix
-        protected: std::string topicPrefix;
-
         // ROS node
         private: std::unique_ptr<ros::NodeHandle> nh_;
         private: ros::CallbackQueue rosQueue;
         private: std::thread rosQueueThread;
 
         // subscriber to the topics published by the pwm_publisher
-        protected: ros::Subscriber north_sub_;
-        protected: ros::Subscriber south_sub_;
-        protected: ros::Subscriber east_sub_;
-        protected: ros::Subscriber west_sub_;
-        protected: ros::Subscriber north_west_sub_;
-        protected: ros::Subscriber north_east_sub_;
-        protected: ros::Subscriber south_east_sub_;
-        protected: ros::Subscriber south_west_sub_;
-
-        // Publisher to the output thrust topic
-        protected: ros::Publisher thrustTopicPublisher;
+        protected: ros::Subscriber sub_;
 
         // Listen to the update event
         // The event is broadcasted every simulation iteration
