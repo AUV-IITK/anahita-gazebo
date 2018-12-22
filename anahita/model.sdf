@@ -359,7 +359,7 @@
          <sensor type="camera" name="front_camera">
             <update_rate>30.0</update_rate>
             <camera name="front_camera">
-               <pose>-0.32285 -0.02119 -0.0224 0 0 3.14285</pose>
+               <pose>-0.42285 -0.02119 -0.1724 0 0 3.14285</pose>
                <horizontal_fov>1.3962634</horizontal_fov>
                <image>
                   <width>800</width>
@@ -554,54 +554,6 @@
       </joint>
       <static>0</static>
       <plugin name="AUVPlugin" filename="libAUVPlugin.so">
-         <thrustEfficiency>0.9</thrustEfficiency>
-         <thrustMin>-7</thrustMin>
-         <thrustMax>7</thrustMax>
-         <robotNamespace>Anahita</robotNamespace>
-         <!-- This flag will make the link neutrally buoyant -->
-         <!-- <neutrally_buoyant>0</neutrally_buoyant> -->
-
-         <!-- Link's volume -->
-         <!-- <volume>1.83826</volume> -->
-
-         <!-- Link's bounding box, it is used to recalculate the immersed
-         volume when close to the surface.
-         This is a workaround the invalid bounding box given by Gazebo-->
-         <!-- <box>
-            <width>40</width>
-            <length>75</length>
-            <height>30</height>
-         </box> -->
-
-         <!-- Center of buoyancy -->
-         <!-- <center_of_buoyancy>0 0 0.05</center_of_buoyancy> -->
-
-         <!-- 1) Fossen's equation of motion -->
-         <!-- <hydrodynamic_model>
-            <type>fossen</type>
-            <added_mass>
-               779.79 -6.8773 -103.32  8.5426 -165.54 -7.8033
-               -6.8773    1222   51.29  409.44 -5.8488  62.726
-               -103.32   51.29  3659.9  6.1112 -386.42  10.774
-               8.5426  409.44  6.1112   534.9 -10.027  21.019
-               -165.54 -5.8488 -386.42 -10.027  842.69 -1.1162
-               -7.8033  62.726  10.775  21.019 -1.1162  224.32
-            </added_mass> -->
-            <!--
-            The linear damping coefficients can be provided as a diagonal (6 elements)
-            or a full matrix (36 coefficients), like the added-mass coefficients above
-            -->
-            <!-- <linear_damping>
-               -74.82 -69.48 -728.4 -268.8 -309.77 -105
-            </linear_damping> -->
-            <!--
-            The quadratic damping coefficients can be provided as a diagonal (6 elements)
-            or a full matrix (36 coefficients), like the added-mass coefficients above
-            -->
-            <!-- <quadratic_damping>
-               -748.22 -992.53 -1821.01 -672 -774.44 -523.27
-            </quadratic_damping>
-         </hydrodynamic_model> -->
       </plugin>
       <plugin name="GazeboRosIMU" filename="libimuPlugin.so">
          <topicName>/mavros/imu/data</topicName>
