@@ -95,29 +95,41 @@ void AUV::Update() {
     if (height <= 0) {
         this->baseLink->AddForceAtRelativePosition(buoyancyForce, CoB);
     }
-
-    this->north_link_->AddRelativeForce(ignition::math::Vector3d(0, -pwm_north_, 0)); 
-    this->south_link_->AddRelativeForce(ignition::math::Vector3d(0, -pwm_south_, 0));
-    this->east_link_->AddRelativeForce(ignition::math::Vector3d(pwm_east_, 0, 0));
-    this->west_link_->AddRelativeForce(ignition::math::Vector3d(pwm_west_, 0, 0));
-    this->north_east_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, -pwm_north_east_));
-    this->north_west_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, -pwm_north_west_));
-    this->south_east_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, -pwm_south_east_));
-    this->south_west_link_->AddRelativeForce(ignition::math::Vector3d(0, 0, -pwm_south_west_));
 }
 
 void AUV::thrustCB (const hyperion_msgs::ThrustConstPtr& pwm) {
-    pwm_west_ = (static_cast<double>(pwm->forward_left)/400)*3;
-    pwm_east_ = (static_cast<double>(pwm->forward_right)/400)*3;
+
+    pwm_west_ = (static_cast<double>(pwm->forward_left)/400);
+    pwm_east_ = (static_cast<double>(pwm->forward_right)/400);
     
-    pwm_south_ = (static_cast<double>(pwm->sideward_back)/400)*3;
-    pwm_north_ = (static_cast<double>(pwm->sideward_front)/400)*3;
+    pwm_south_ = (static_cast<double>(pwm->sideward_back)/400);
+    pwm_north_ = (static_cast<double>(pwm->sideward_front)/400);
     
     pwm_north_east_ = (static_cast<double>(pwm->upward_north_east)/400);
     pwm_north_west_ = (static_cast<double>(pwm->upward_north_west)/400);
     
     pwm_south_east_ = (static_cast<double>(pwm->upward_south_east)/400);
     pwm_south_west_ = (static_cast<double>(pwm->upward_south_west)/400);
+
+    static double vel_x = 0;
+    static double vel_y = 0;
+    static double vel_z = 0;
+    static double ang_vel_z = 0;
+    static ignition::math::Vector3d lin_vel = ignition::math::Vector3d(0, 0, 0);
+    static ignition::math::Vector3d ang_vel = ignition::math::Vector3d(0, 0, 0);
+
+    vel_x = (-pwm_east_ - pwm_west_)/2;
+    vel_y = (pwm_south_ + pwm_north_)/2;
+    vel_z = (-pwm_south_east_ - pwm_south_west_ - pwm_north_east_ - pwm_north_west_)/4;
+
+    ang_vel_z = (pwm_north_ - pwm_south_ + pwm_west_ - pwm_east_)/2;
+
+    lin_vel = ignition::math::Vector3d(vel_x, vel_y, vel_z);
+    ang_vel = ignition::math::Vector3d(0, 0, ang_vel_z);
+
+    this->model_->SetLinearVel(lin_vel);
+    this->model_->SetAngularVel(ang_vel);
+
 } 
 
 GZ_REGISTER_MODEL_PLUGIN(AUV)

@@ -562,6 +562,5 @@
          <robotNamespace>Anahita</robotNamespace>
          <bodyName>imu</bodyName>
       </plugin>
-      <plugin name="KillPlugin" filename="libKillPlugin.so"/>
    </model>
 </sdf>
