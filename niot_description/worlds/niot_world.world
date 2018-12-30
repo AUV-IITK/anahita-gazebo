@@ -57,8 +57,15 @@
     </include>
 
     <include>
-      <uri>model://niot_torpedo</uri>
-      <pose>18 5.0 -2.0 0 0 -0.892</pose>
+      <name>green_torpedo</name>
+      <uri>model://green_torpedo</uri>
+      <pose>19 -6 -1.986330 0 0 -2.379582</pose>
+    </include>
+
+    <include>
+      <name>red_torpedo</name>
+      <uri>model://red_torpedo</uri>
+      <pose>18.731085 -6.220684 -1.986330 0 0 0.759814</pose>
     </include>
 
      <include>
@@ -69,7 +76,7 @@
 
     <include>
       <uri>model://niot_bins</uri>
-      <pose>19 -6 -2.7 1.57 0 1.57</pose>
+      <pose>18 5.0 -2.216889 1.57 -0.000503 0.888349</pose>
     </include>
 
     <include>
