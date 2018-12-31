@@ -52,8 +52,8 @@
     </include>
 
     <include>
-      <uri>model://niot_gate</uri>
-      <pose>12.133856 -3.088502 -4.067059 0.011339 0.003052 2.987874</pose>
+      <uri>model://gate</uri>
+      <pose>12.482152 -0.561728 -2.325866 3.126618 -0.001058 -0.019525</pose>
     </include>
 
     <include>
