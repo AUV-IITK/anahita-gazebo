@@ -33,7 +33,6 @@ namespace gazebo
         public: virtual void Load(physics::ModelPtr, sdf::ElementPtr);
         public: virtual void Update();
         public: void QueueThread();
-        public: double ThrustConversionFnc(int pwm);
 
         public: void thrustCB (const hyperion_msgs::ThrustConstPtr&);
 

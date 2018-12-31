@@ -56,17 +56,6 @@ void AUV::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
     this->update_connection_ = event::Events::ConnectWorldUpdateBegin(boost::bind(&AUV::Update, this));
 }
 
-double AUV::ThrustConversionFnc(int pwm) {
-    int x = pwm;
-    double A = -231.54;
-    double B = 0.42;
-    double C = -0.00027;
-    double D = 0.0000000622;
-
-    double f = A + B*x + C*x*x + D*x*x*x;
-    return f; 
-}
-
 /// \brief ROS helper function that processes messages
 void AUV::QueueThread()
 {
@@ -115,6 +104,8 @@ void AUV::thrustCB (const hyperion_msgs::ThrustConstPtr& pwm) {
     static double vel_y = 0;
     static double vel_z = 0;
     static double ang_vel_z = 0;
+    static double ang_vel_y = 0;
+    static double ang_vel_x = 0;
     static ignition::math::Vector3d lin_vel = ignition::math::Vector3d(0, 0, 0);
     static ignition::math::Vector3d ang_vel = ignition::math::Vector3d(0, 0, 0);
 
@@ -123,9 +114,12 @@ void AUV::thrustCB (const hyperion_msgs::ThrustConstPtr& pwm) {
     vel_z = (-pwm_south_east_ - pwm_south_west_ - pwm_north_east_ - pwm_north_west_)/4;
 
     ang_vel_z = (pwm_north_ - pwm_south_ + pwm_west_ - pwm_east_)/2;
+    ang_vel_x = (pwm_north_west_ + pwm_south_west_ - pwm_north_east_ - pwm_south_east_)/2;
+    ang_vel_y = (pwm_north_east_ + pwm_north_west_ - pwm_south_east_ - pwm_south_west_)/2;
 
     lin_vel = ignition::math::Vector3d(vel_x, vel_y, vel_z);
     ang_vel = ignition::math::Vector3d(0, 0, ang_vel_z);
+    // ang_vel = ignition::math::Vector3d(ang_vel_x, ang_vel_y, ang_vel_z);
 
     this->model_->SetLinearVel(lin_vel);
     this->model_->SetAngularVel(ang_vel);

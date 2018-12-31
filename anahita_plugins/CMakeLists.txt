@@ -144,9 +144,6 @@ target_link_libraries(imuPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIB
 add_library(AUVPlugin SHARED src/AUVPlugin.cc include/anahita_plugins/AUVPlugin.hh)
 target_link_libraries(AUVPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES})
 
-add_library(KillPlugin SHARED src/kill_plugin.cc include/anahita_plugins/kill_plugin.hh)
-target_link_libraries(KillPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${SDF_LIBRARIES} ${catkin_LIBRARIES})
-
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
