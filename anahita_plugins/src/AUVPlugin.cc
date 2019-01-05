@@ -27,7 +27,7 @@ void AUV::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
     std::vector<gazebo::physics::LinkPtr> links_ = this->model_->GetLinks();
 
     for (int i = 0; i < links_.size(); i++) {
-        mass_ = mass_ + links_[i]->GetInertial()->Mass();
+        mass_ = mass_ + links_[i]->GetInertial()->GetMass();
     }
 
     cout << "Model Name: " << _model->GetName() << endl;
@@ -73,17 +73,19 @@ void AUV::Update() {
     static double g = 9.8;
 
     static ignition::math::Vector3d CoB = ignition::math::Vector3d(0, 0, 0.05);
-    static ignition::math::Pose3d pos = ignition::math::Pose3d(0, 0, 0, 0, 0, 0);
-    static double height = -1.5;
+    // static ignition::math::Pose3d pos = ignition::math::Pose3d(0, 0, 0, 0, 0, 0);
+    // static double height = -1.5;
 
-    pos = model_->WorldPose();
-    height = pos.Pos().Z();
+    // static gazebo::math::Pose = gazebo::math::Pose(0, 0, 0, 0, 0, 0);
+
+    // model_->GetWorldPose(pos);
+    // height = pos.Pos().Z();
 
     buoyancyForce = ignition::math::Vector3d(0, 0, mass_*g);
 
-    if (height <= 0) {
+    // if (height <= 0) {
         this->baseLink->AddForceAtRelativePosition(buoyancyForce, CoB);
-    }
+    // }
 }
 
 void AUV::thrustCB (const hyperion_msgs::ThrustConstPtr& pwm) {

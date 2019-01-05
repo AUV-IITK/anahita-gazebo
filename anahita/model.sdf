@@ -201,7 +201,7 @@
          <sensor type="camera" name="bottom_camera">
          <update_rate>30.0</update_rate>
          <camera name="bottom_camera">
-            <pose>0.28034 0.105242 -0.329224 0 1.7142 3.142875</pose>
+            <pose>0.27034 0.075242 -0.379224 0 1.7142 3.142875</pose>
             <horizontal_fov>1.3962634</horizontal_fov>
             <image>
                <width>800</width>
