@@ -17,6 +17,7 @@
 #include <eigen3/Eigen/Core>
 #include <eigen3/Eigen/Geometry>
 #include <std_msgs/Int32.h>
+#include <std_msgs/Float32.h>
 #include <hyperion_msgs/Thrust.h>
 
 #include <iostream>
@@ -75,6 +76,7 @@ namespace gazebo
 
         // subscriber to the topics published by the pwm_publisher
         protected: ros::Subscriber sub_;
+        protected: ros::Publisher pub_;
 
         // Listen to the update event
         // The event is broadcasted every simulation iteration

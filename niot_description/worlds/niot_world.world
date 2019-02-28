@@ -29,7 +29,7 @@
 
     <include>
       <uri>model://red_buoy</uri>
-      <pose>5 0 -0.5 0 0 0</pose>
+      <pose>5 0 -0.75 0 0 0</pose>
       <static>true</static>
     </include>
 
@@ -41,7 +41,7 @@
 
     <include>
       <uri>model://green_buoy</uri>
-      <pose>7 -2.25 -1 0 0 0</pose>
+      <pose>7 -2.25 -1.15 0 0 0</pose>
       <static>true</static>
     </include>
 

@@ -40,9 +40,9 @@
       </geometry>
     </collision>
   </link>
-  <gazebo reference="red_torpedo">
+  <!-- <gazebo reference="red_torpedo">
     <material>Gazebo/Red</material>
-  </gazebo>
+  </gazebo> -->
   <gazebo>
     <static>true</static>
   </gazebo>
